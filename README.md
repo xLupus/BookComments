@@ -14,7 +14,7 @@ A plataforma é delimitada pelo cadastro de livros de fantasia. <editar>
 
 ### Justificativa  
 O projeto é uma forma de colocar em prática diversos conceitos e tecnologias aprendidos durante as aulas, em um trabalho funcional.  
-
+<br>
 
 ## Tecnologias utilizadas 
 **HTML (HyperText Markup Language)**: Linguagem usada para criar a estrutura das páginas web; 
@@ -30,11 +30,13 @@ O projeto é uma forma de colocar em prática diversos conceitos e tecnologias a
 **Figma**: Plataforma gratuita utilizada para criação de wireframes e protótipos do projeto; 
   
 **Diagrams**: Plataforma gratuita utilizada para criação do modelo de dados; 
-
-
+<br>
+<br>
+ 
 ## Especificação de Interfaces - Protótipos 
 Em breve
-
+<br>
+<br>
 
 ## Disciplinas contempladas 
 **Banco de dados**; 
