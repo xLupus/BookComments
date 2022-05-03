@@ -23,7 +23,7 @@ O projeto é uma forma de colocar em prática diversos conceitos e tecnologias a
   
 **Javascript**: Linguagem de programação utilizada para criar funções no site; 
   
-**PHP**: Linguagem responsável pela transição de informações entre o site e o servidor; 
+**PHP**: Linguagem responsável pela transição de informações entre o site e o banco de dados; 
   
 **MS SQL Server**: Banco de dados utilizado para armazenar as informações contidas no site; 
   
