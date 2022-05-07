@@ -9,7 +9,7 @@ Criar um site onde leitores de literatura fantástica possam conferir as notas e
 
  
 ### Escopo 
-A plataforma é delimitada pelo cadastro de livros de fantasia. <editar> 
+A plataforma é delimitada pelo cadastro de livros de fantasia, possuindo apenas um usuário administrador, projeto não responsivo, <editar> 
 
 
 ### Justificativa  
