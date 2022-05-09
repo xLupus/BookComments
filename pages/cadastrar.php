@@ -1,3 +1,5 @@
+<?php include '../assets/php/applica-control.php' ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,7 +20,7 @@
                 <p id="boas-vindas">Comece a sua jornada</p>
                 <h1>Faça seu Cadastro</h1>
 
-                <form action="">
+                <form action="../assets/php/cadastrar-user.php" method="POST">
                     <div class="input-container">
                         <label for="nome">Nome Completo</label>
                         <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo">
@@ -38,7 +40,7 @@
                     <input type="submit" value="Registrar" id="cadastro">
                 </form>
 
-                <a href="login.html"><button id="link-btn">Voltar</button></a>
+                <a href="login.php"><button id="link-btn">Voltar</button></a>
             </div><!-- right-content -->
         </div><!-- right -->
     </div><!-- center -->

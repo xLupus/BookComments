@@ -1,3 +1,5 @@
+<?php include '../assets/php/applica-control.php' ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,7 +20,7 @@
                 <p id="boas-vindas">Bem-vindo de volta ao <u>Book Comments</u>!</p>
                 <h1>Acesse sua conta</h1>
 
-                <form action="">
+                <form action="../assets/php/login-user.php" method="POST">
                     <div class="input-container">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" placeholder="Digite seu E-mail">
@@ -33,7 +35,7 @@
                     <input type="submit" value="Entrar" id="login">
                 </form><!-- from -->
 
-                <a href="cadastrar.html"><button id="link-btn">Registrar-se</button></a>
+                <a href="cadastrar.php"><button id="link-btn">Registrar-se</button></a>
             </div><!-- right-content -->
         </div><!-- right -->
     </div><!-- center -->
