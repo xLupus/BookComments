@@ -10,7 +10,7 @@ if( empty($email) || empty($senha) ){ //inputs vazios
     exit();
 
 }else{
-    $stmt = $database->prepare('SELECT email, senha FROM Usuario WHERE email = :email');
+    $stmt = $database->prepare('SELECT idUsuario, email, senha, permissao FROM Usuario WHERE email = :email');
     $stmt->bindParam(':email', $email);
     $stmt->execute();
     
@@ -20,15 +20,14 @@ if( empty($email) || empty($senha) ){ //inputs vazios
     
         if( password_verify($senha , $c['senha']) ){
             session_start();
-            $_SESSION['id'] = $email;
-            $_SESSION['tipo'] = 0;
+            $_SESSION['id'] = $c['idUsuario'];
+            $_SESSION['permissao'] = $c['permissao'];
     
             header('location: ../../index.php');
 
         }else{
             echo 'email ou senha incorretos(senha)';
         }
-    
     }else{
         echo 'email ou senha incorretos(email)';
     }

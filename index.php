@@ -1,4 +1,4 @@
-<?php require 'assets/php/access-control.php'; ?>
+<?php require 'assets/php/access-control.php'; var_dump($_SESSION);?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
