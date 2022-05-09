@@ -18,7 +18,7 @@ if( empty($email) || empty($senha) ){ //inputs vazios
     
     if($c != false){ //Se o email estiver cadastrado no bd
     
-        if($senha == $c['senha']){
+        if( password_verify($senha , $c['senha']) ){
             session_start();
             $_SESSION['id'] = $email;
             $_SESSION['tipo'] = 0;

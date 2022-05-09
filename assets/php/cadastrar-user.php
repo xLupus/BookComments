@@ -6,12 +6,13 @@ $nome = trim( $_POST['nome'] ?? '' );
 $email = trim( $_POST['email'] ?? '' );
 $senha = trim( $_POST['senha'] ?? '' );
 
-//$senha = password_hash($senha, PASSWORD_DEFAULT);
 if( empty($nome) || empty($email) || empty($senha)){ //inputs vazios
     header('location: ../../pages/cadastrar.php');
     exit();
 
 }else{
+    $senha = password_hash($senha, PASSWORD_BCRYPT);
+
     $checagem = $database->prepare('SELECT email FROM Usuario WHERE email = :email');
     $checagem->bindParam(':email', $email);
     $checagem->execute();
