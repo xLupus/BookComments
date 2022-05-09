@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.center {
+  max-width: 1440px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.center .left-img-login {
+  background-image: url("../../images/imagem-login.png");
+  height: 100vh;
+  width: 50%;
+}
+
+.center .left-img-cadastro {
+  background-image: url("../../images/Imagem-Cadastro.png");
+  height: 100vh;
+  width: 50%;
+}
+
+.center .right {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.center .right img {
+  width: 200px;
+  height: 165px;
+}
+
+.center .right .right-content p {
+  font-size: 14px;
+  font-weight: medium;
+}
+
+.center .right .right-content h1 {
+  font-size: 34px;
+  margin-bottom: 30px;
+}
+
+.center .right .right-content .input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.center .right .right-content .input-container label {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.center .right .right-content .input-container input {
+  width: 350px;
+  height: 50px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 20px;
+  margin-bottom: 15px;
+  /* arrumar */
+}
+
+.center .right .right-content .input-container i {
+  position: relative;
+  top: -48px;
+  left: 320px;
+  cursor: pointer;
+}
+
+.center .right .right-content #login, .center .right .right-content #cadastro {
+  background-color: #FFB94D;
+  color: white;
+  width: 350px;
+  height: 50px;
+  font-weight: bold;
+  margin-top: 15px;
+  border: none;
+  filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+}
+
+.center .right .right-content #link-btn {
+  background-color: #FFB94D;
+  color: white;
+  width: 350px;
+  height: 50px;
+  font-weight: bold;
+  margin-top: 15px;
+  border: none;
+  filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+  background-color: #513427;
+}

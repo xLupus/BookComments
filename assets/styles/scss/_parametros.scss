@@ -1,0 +1,22 @@
+$btn-brown: #513427;
+$btn-yellow: #FFB94D;
+
+
+@mixin BTN {
+    background-color: $btn-yellow;
+    color: white;
+    width: 350px;
+    height: 50px;
+    font-weight: bold;
+    margin-top: 15px;
+    border: none;
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
