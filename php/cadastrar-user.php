@@ -2,15 +2,14 @@
 
 require_once 'database-connection.php';
 
+$warning = '';
+
 $nome = trim( $_POST['nome'] ?? '' );
 $email = trim( $_POST['email'] ?? '' );
 $senha = trim( $_POST['senha'] ?? '' );
 
-if( empty($nome) || empty($email) || empty($senha)){ //inputs vazios
-    header('location: ../../pages/cadastrar.php');
-    exit();
+if( !empty($nome) && !empty($email) && !empty($senha)){ //inputs vazios
 
-}else{
     $senha = password_hash($senha, PASSWORD_BCRYPT);
 
     $checagem = $database->prepare('SELECT email FROM Usuario WHERE email = :email');
@@ -36,13 +35,20 @@ if( empty($nome) || empty($email) || empty($senha)){ //inputs vazios
             if( $idUser = $query->fetch(PDO::FETCH_ASSOC) ){
                 
                 session_start();
-                $_SESSION['id'] = $idUser;
+                $_SESSION['id'] = $idUser['idUsuario'];
                 $_SESSION['permissao'] = 'u';
                 
-                header('location: ../../index.php');
-            }            
+                header('location: ../index.php');
+            }
         }
-    }else{ 
-        echo 'email ja cadastrado';
-    }
+    }else{$warning++;}
+}else{$warning++;}
+
+if($warning > 0){
+    $warningText = "<p style='color:red;text-align:center'> *E-mail ou senha incorretos </p>";
+    $warningBox = "style='border:2px solid red'";
+    $warningColorText = "style='color:red'";
+    $redirectLink = '../pages/login.php';
 }
+
+include '../pages/cadastrar.php';

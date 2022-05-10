@@ -1,4 +1,4 @@
-<?php require 'assets/php/access-control.php'; var_dump($_SESSION);?>
+<?php require 'php/access-control.php'; var_dump($_SESSION);?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,6 +9,6 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="assets/php/logout.php">sair</a>
+    <a href="php/logout.php">sair</a>
 </body>
 </html>

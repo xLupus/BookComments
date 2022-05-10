@@ -1,5 +1,4 @@
-<?php include '../assets/php/applica-control.php' ?>
-
+<?php include '../php/applica-control.php';?> 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,32 +19,34 @@
                 <p id="boas-vindas">Comece a sua jornada</p>
                 <h1>Faça seu Cadastro</h1>
 
-                <form action="../assets/php/cadastrar-user.php" method="POST">
+                <form action="../php/cadastrar-user.php" method="POST">
                     <div class="input-container">
                         <label for="nome">Nome Completo</label>
-                        <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo">
+                        <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" <?= $warningBox ?? '' ?>>
                     </div><!-- input-container -->
 
                     <div class="input-container">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Digite seu E-mail">
+                        <input type="email" name="email" id="email" placeholder="Digite seu E-mail" <?=$warningBox ?? ''?>>
                     </div><!-- input-container -->
 
                     <div class="input-container">
                         <label for="senha">Senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" <?=$warningBox ?? ''?>>
                         <i class="fa-solid fa-eye-slash"></i>
                     </div><!-- input-container -->
+
+                    <?=$warningText ?? ''?> <!-- arrumar -->
 
                     <input type="submit" value="Registrar" id="cadastro">
                 </form>
 
-                <a href="login.php"><button id="link-btn">Voltar</button></a>
+                <a href="<?=$redirectLink ?? 'login.php'?>"><button id="link-btn">Voltar</button></a>
             </div><!-- right-content -->
         </div><!-- right -->
     </div><!-- center -->
 
-    <script src="../assets/js/functions.js"></script>
+    <script src="../js/functions.js"></script>
     <script src="https://kit.fontawesome.com/d4e28784cb.js" crossorigin="anonymous"></script>
 </body>
 </html>
