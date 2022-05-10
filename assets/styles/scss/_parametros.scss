@@ -1,7 +1,6 @@
 $btn-brown: #513427;
 $btn-yellow: #FFB94D;
 
-
 @mixin BTN {
     background-color: $btn-yellow;
     color: white;
@@ -14,9 +13,9 @@ $btn-yellow: #FFB94D;
     cursor: pointer;
 }
 
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-

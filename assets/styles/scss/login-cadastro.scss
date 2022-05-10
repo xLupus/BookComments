@@ -34,20 +34,19 @@
         }
 
         .right-content{
-    
+
             p{
                 font: {
                     size: 14px;
                     weight: medium;
                 }
-                
             }
+
             h1{
-                font: {
-                    size: 34px;
-                }
+                font-size: 34px;
                 margin-bottom: 30px;
             }
+
 
             .input-container{
                 display: flex;
@@ -68,23 +67,23 @@
                     margin-bottom: 15px; /* arrumar */
                 }
 
-
                 i{
                     position: relative;
                     top: -48px;
                     left: 320px;
                     cursor: pointer;
                 }
+
             }
 
             #login,#cadastro{
                 @include BTN;
             }
+            
             #link-btn{
                 @include BTN;
                 background-color: $btn-brown;
             }
-
 
         }
     }
