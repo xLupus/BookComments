@@ -1,4 +1,4 @@
-<?php include '../php/applica-control.php';?>
+<?php include '../php/includes/applica-control.php';?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

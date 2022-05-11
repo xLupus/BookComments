@@ -1,6 +1,6 @@
 <?php
 
-require_once 'database-connection.php';
+require_once 'includes/database-connection.php';
 
 $warning = '';
 
