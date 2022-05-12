@@ -1,4 +1,3 @@
-<?php include '../php/includes/applica-control.php';?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +12,7 @@
         <div class="left-img-login"></div><!-- left -->
 
         <div class="right">
-            <img src="../assets/images/Logo.svg" alt="Book BookComments">
+            <img src="../assets/images/Logo.svg" alt="BookComments">
             
             <div class="right-content">
                 <p id="boas-vindas">Bem-vindo de volta ao <u>Book Comments</u>!</p>
@@ -22,23 +21,35 @@
                 <form action="../php/login-user.php" method="POST">
                     
                     <div class="input-container">
-                        <label for="email" <?=$warningColorText ?? ''?> >Email</label>
-                        <input type="email" name="email" id="email" placeholder="Digite seu E-mail" <?=$warningBox ?? ''?>>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Digite seu E-mail" <?=!empty($erros['EMAIL'])? $boxError: "VALUE='$email'"?>>
                     </div><!-- input-container -->
 
                     <div class="input-container">
-                        <label for="senha" <?=$warningColorText ?? ''?> >Senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" <?=$warningBox ?? ''?>>
+                        <label for="senha" >Senha</label>
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha"<?=!empty($erros['SENHA'])? $boxError: ''?>>
                         <i class="fa-solid fa-eye-slash"></i>
                     </div><!-- input-container -->
 
-                    <?=$warningText ?? ''?>
+                    <?php
+                        if(isset($erros) && !empty($erros) ){
+                            echo "<div class='validation-error'>
+                                    <ul>";
+
+                            foreach ($erros as $campo => $erro) {
+                                echo "<li>$erro $campo </li>";
+                            }
+
+                            echo "  </ul>
+                                </div>";
+                        }
+                    ?>
                     
-                    <input type="submit" value="Entrar" id="login">
+                    <input type="submit" value="Entrar" id="login" name='btn_entrar'>
                 </form><!-- from -->
 
                 
-                <a href=" <?=$redirectLink ?? 'cadastrar.php'?>"><button id="link-btn">Registrar-se</button></a>
+                <a href="../php/cadastrar-user.php"><button id="link-btn">Registrar-se</button></a>
             </div><!-- right-content -->
         </div><!-- right -->
     </div><!-- center -->

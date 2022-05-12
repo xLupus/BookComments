@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.validation-error {
+  width: 100%;
+  background-color: #f3b2b2;
+  color: #961605;
+  font-weight: bold;
+  padding: 20px 10px;
+  box-shadow: 0px 0px 11px red;
+}
+
+.validation-error li {
+  list-style: none;
+}
+
+.box-error {
+  border: 3px solid #ca0808;
+}
+
+.cadastrar-livro {
+  margin: 60px auto 0px auto;
+  max-width: 1280px;
+}
+
+.cadastrar-livro h1 {
+  text-align: center;
+}
+
+.cadastrar-livro hr {
+  margin: 10px 0 40px 0;
+}
+
+.cadastrar-livro .validation-error {
+  width: 100%;
+  background-color: #f3b2b2;
+  color: #961605;
+  font-weight: bold;
+  padding: 20px 10px;
+  box-shadow: 0px 0px 11px red;
+}
+
+.cadastrar-livro .validation-error li {
+  list-style: none;
+}
+
+.cadastrar-livro .box-error {
+  border: 3px solid #ca0808;
+}
+
+.cadastrar-livro .livro-inputs form .inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F4F4;
+  padding: 55px 0;
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25);
+}
+
+.cadastrar-livro .livro-inputs form .inputs .left {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  margin-right: 5%;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .left .img-container {
+  width: 100%;
+  height: 360px;
+  background-color: #ccc;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .left label {
+  width: 120px;
+  background-color: white;
+  padding: 5px;
+  text-align: center;
+  margin: 10px auto 0 auto;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .left input[type=file] {
+  display: none;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right .row {
+  display: flex;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right label {
+  font-size: 18px;
+  color: #616161;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right .campo-input {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right input[type=text] {
+  width: 350px;
+  height: 50px;
+  border-radius: 10px;
+  padding: 15px;
+  font-weight: 400;
+  font-size: 16px;
+  outline: none;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right input[type=number] {
+  width: 60px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right #sinopse-label {
+  color: #616161;
+  font-weight: bold;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right #status {
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right #status p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right #status input[type=radio] {
+  margin-right: 20px;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right textarea {
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 20px 15px;
+  resize: unset;
+  outline: none;
+}
+
+.cadastrar-livro .livro-inputs form input[type=submit] {
+  height: 50px;
+  width: 270px;
+  background-color: #513427;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  margin-top: 35px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}

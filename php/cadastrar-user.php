@@ -1,54 +1,73 @@
 <?php
 
+include '../php/includes/applica-control.php';
 require_once 'includes/database-connection.php';
 
-$warning = '';
+$boxError = 'class="box-error"';
+$nome  = '' ;
+$email = '';
+$senha = '';
 
-$nome = trim( $_POST['nome'] ?? '' );
-$email = trim( $_POST['email'] ?? '' );
-$senha = trim( $_POST['senha'] ?? '' );
+if(isset($_POST['btn_cadastrar'])){
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = trim($_POST['senha'], '');
+    $erros = [];
 
-if( !empty($nome) && !empty($email) && !empty($senha)){ //inputs vazios
 
-    $senha = password_hash($senha, PASSWORD_BCRYPT);
+    if(!empty($nome)){
+        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRIPPED);     
+    }else{$erros["NOME"] = "Preencha o campo";}
 
-    $checagem = $database->prepare('SELECT email FROM Usuario WHERE email = :email');
-    $checagem->bindParam(':email', $email);
-    $checagem->execute();
-    $c = $checagem->fetch(PDO::FETCH_ASSOC);
-    
-    if($c == false){ //Se o email n existir no BD
+
+    if(!empty($email)){
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL); 
+    }else{$erros["EMAIL"] = "Preencha o campo";}
+
+
+    if(empty($senha)){
+        $erros["SENHA"] = "Preencha o campo";
+    }
+    /*
+    if(!empty($senha)){
+        $senha = filter_input(INPUT_POST, 'sobre', FILTER_SANITIZE_STRIPPED); 
+    }else{ $erros["SENHA"] = "Preencha o campo";}
+    */
+
+    if(empty($erros)){
+        $senha = password_hash($senha, PASSWORD_BCRYPT);
+
+        $checagem = $database->prepare('SELECT email FROM Usuario WHERE email = :email');
+        $checagem->bindParam(':email', $email);
+        $checagem->execute();
+        $c = $checagem->fetch(PDO::FETCH_ASSOC);
         
-        $stmt = $database->prepare("INSERT INTO Usuario (nomeUser,email,senha,permissao)
-                                    VALUES (:nome, :email, :senha, 'u')");
-    
-        $stmt->bindParam(':nome',$nome);
-        $stmt->bindParam(':email',$email);
-        $stmt->bindParam(':senha',$senha);
-    
-        if($stmt->execute()){
+        if($c == false){ //Se o email n existir no BD
+            
+            $stmt = $database->prepare("INSERT INTO Usuario (nomeUser,email,senha,permissao)
+                                        VALUES (:nome, :email, :senha, 'u')");
+        
+            $stmt->bindParam(':nome',$nome);
+            $stmt->bindParam(':email',$email);
+            $stmt->bindParam(':senha',$senha);
+        
+            if($stmt->execute()){
 
-            $query = $database->prepare('SELECT idUsuario FROM Usuario WHERE email = :email');
-            $query->bindParam(':email',$email);
-            $query->execute();
+                $query = $database->prepare('SELECT idUsuario FROM Usuario WHERE email = :email');
+                $query->bindParam(':email',$email);
+                $query->execute();
 
-            if( $idUser = $query->fetch(PDO::FETCH_ASSOC) ){
-                
-                session_start();
-                $_SESSION['id'] = $idUser['idUsuario'];
-                $_SESSION['permissao'] = 'u';
-                
-                header('location: ../index.php');
+                if( $idUser = $query->fetch(PDO::FETCH_ASSOC) ){
+                    
+                    session_start();
+                    $_SESSION['id'] = $idUser['idUsuario'];
+                    $_SESSION['permissao'] = 'u';
+                    
+                    header('location: ../index.php');
+                }
             }
-        }
-    }else{$warning++;}
-}else{$warning++;}
-
-if($warning > 0){
-    $warningText = "<p style='color:red;text-align:center'> *E-mail ou senha incorretos </p>";
-    $warningBox = "style='border:2px solid red'";
-    $warningColorText = "style='color:red'";
-    $redirectLink = '../pages/login.php';
+        }else{$erros["EMAIL"] = "Valor do campo ja cadastrado";}
+    }
 }
 
 include '../pages/cadastrar.php';

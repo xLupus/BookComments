@@ -1,0 +1,141 @@
+@import "parametros";
+
+.cadastrar-livro{
+    margin: 60px auto 0px auto;
+    max-width: 1280px;
+
+    h1{text-align: center;}
+    hr{margin: 10px 0 40px 0;}
+
+    .validation-error{
+        width: 100%;
+        background-color: rgb(243, 178, 178);
+        color: rgb(150, 22, 5);
+        font-weight: bold;
+        padding: 20px 10px;
+        box-shadow: 0px 0px 11px red;
+
+
+
+        li{
+            list-style: none;
+        }
+    }
+
+    .box-error{
+        border: 3px solid rgb(202, 8, 8);
+    }
+
+    .livro-inputs{
+
+        form{
+            .inputs{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $containerColor;
+                padding: 55px 0;
+                @include boxShadow;
+
+                .left{
+                    display: flex;
+                    flex-direction: column;
+                    width: 270px;
+                    margin-right: 5%;
+
+                    .img-container{
+                        width: 100%;
+                        height: 360px;
+                        background-color: #ccc;
+                    }
+
+                    label{
+                        width: 120px;
+                        background-color: white;
+                        padding: 5px;
+                        text-align: center;
+                        margin: 10px auto 0 auto;
+                        cursor: pointer;
+                        border: 1px solid black;
+                    }
+                    input[type=file]{display: none;}
+                    
+                }
+
+                .right{
+                    display: flex;
+                    flex-direction: column;
+                    width: 60%;
+
+                    .row{
+                        display: flex;
+                    }
+                    label{
+                        font-size: 18px;
+                        color: #616161;
+                        font-weight: bold;
+                        margin-right: 10px;
+                    }
+                    .campo-input{
+                        margin-bottom: 20px;
+                        margin-right: 20px;
+                    }
+
+                    input[type=text]{
+                        width: 350px;
+                        height: 50px;
+                        border-radius: 10px;
+                        padding: 15px;
+                        font-weight: 400;
+                        font-size: 16px;
+                        outline: none;
+                    }
+                    
+                    input[type=number]{
+                        width: 60px;
+                        height: 50px;
+                        border-radius: 10px;
+                        font-size: 16px;
+                        text-align: center;
+                        outline: none;
+                    }
+                    #sinopse-label{
+                        color: #616161;
+                        font-weight: bold;
+                    }
+
+                    #status{
+                        display: flex;
+                        height: 50px;
+                        align-items: center;
+
+                        p{
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin-right: 15px;
+                        }
+                        input[type=radio]{
+                            margin-right: 20px;
+                        }
+                    }
+                    textarea{
+                        width: 100%;
+                        height: 100%;
+                        font-weight: 400;
+                        font-size: 16px;
+                        padding: 20px 15px;
+                        resize: unset;
+                        outline: none;
+                    }
+                }
+            }
+
+            input[type=submit]{
+                @include BTN_CADASTRO;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}

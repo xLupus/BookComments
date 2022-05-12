@@ -11,8 +11,8 @@
 <body>
     <ul>
         <li><a href="php/includes/logout.php">sair</a></li>
-        <li><a href="pages/cadastrar-livro.php">Cadastras Livro</a></li>
-        <li><a href="pages/cadastrar-autor.php">Cadastras Autor</a></li>
+        <li><a href="php/validar-livro.php">Cadastras Livro</a></li>
+        <li><a href="php/validar-autor.php">Cadastras Autor</a></li>
     </ul>
 
 </body>

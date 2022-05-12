@@ -5,15 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Livro</title>
-    <link rel="stylesheet" href="../assets/styles/css/admin-area.css">
+    <link rel="stylesheet" href="../assets/styles/css/admin-area1.css">
 </head>
 <body>
     <section class="cadastrar-livro">
         <h1>Cadastrar - Livro</h1>
         <hr>
+        <?php
+            if(isset($confirmation)){
+                echo $confirmation;
 
-        <!-- <div class="validation-ok"><p>Autor cadastrado com sucesso</p></div>  -->
+            }elseif(isset($erros) && !empty($erros) ){
+                echo "<div class='validation-error'>
+                        <ul>";
 
+                foreach ($erros as $campo => $erro) {
+                    echo "<li>$erro $campo </li>";
+                }
+
+                echo "  </ul>
+                    </div>";
+            }
+        ?>
         <div class="livro-inputs">
             <form action="../php/validar-livro.php" method='POST' enctype='multipart/form-data'>
                 <div class="inputs">
@@ -22,14 +35,14 @@
                             <img id="img-preview" src="" >
                         </div>
 
-                        <label for="img-input">Adicionar foto</label>
-                        <input type="file" name="imagem" id="img-input">
+                        <label for="img-input" <?=!empty($erros['IMAGEM']) ? $boxError: ''?>>Adicionar foto</label>
+                        <input type="file" name="imagem" id="img-input" >
                     </div><!-- left -->
 
                     <div class="right">
                         <div class="campo-input">
                             <label for="titulo">Titulo em Portugues</label>
-                            <input type="text" name="titulo" id="titulo">
+                            <input type="text" name="titulo" id="titulo"<?=!empty($erros['TITULO']) ? $boxError: "VALUE='$titulo'"?>>
                         </div>
 
                         <div class="campo-input">
@@ -37,45 +50,52 @@
                             <input type="text" name="autor" id="autor">
                         </div>
 
-                        <div class="campo-input">
-                            <label for="lancamento">Ano de ----</label>
-                            <input type="number" name="lancamento" id="lancamento">
-                        </div>
+                        <div class='row'>
+                            <div class="campo-input">
+                                <label for="lancamento">Lançamento</label>
+                                <input type="number" name="lancamento" id="lancamento" <?=!empty($erros['LANCAMENTO']) ? $boxError: "VALUE='$lancamento'"?>>
+                            </div>
+    
+                            <div class="campo-input">
+                                <label for="edicao">Edição</label>
+                                <input type="number" name="edicao" id="edicao" <?=!empty($erros['EDICAO'])?$boxError:"VALUE='$edicao'"?>>
+                            </div>
+    
+                            <div class="campo-input">
+                                <label for="volume">Volume</label>
+                                <input type="number" name="volume" id="volume"<?=!empty($erros['VOLUME']) ? $boxError: "VALUE='$volume'"?>>
+                            </div>
+                        </div><!-- row -->
+
+                        <div class="row">
+                            <div class="campo-input">
+                                <label for="paginas">Paginas</label>
+                                <input type="number" name="paginas" id="paginas"<?=!empty($erros['PAGINAS']) ? $boxError: "VALUE='$paginas'"?>>
+                            </div>
+    
+                            <div id='status'>
+                                <p>Ativo:</p>
+                                <label for="ativado">Sim</label>
+                                <input type="radio" name="situacao" id="ativado" value="1" checked>
+                                <label for="desativado">Não</label>
+                                <input type="radio" name="situacao" id="desativado" value="0">
+                            </div>
+                        </div><!-- row -->
 
                         <div class="campo-input">
-                            <label for="edicao">Edição</label>
-                            <input type="number" name="edicao" id="edicao">
-                        </div>
-
-                        <div class="campo-input">
-                            <label for="volume">Volume</label>
-                            <input type="number" name="volume" id="volume">
-                        </div>
-
-                        <div class="campo-input">
-                            <label for="paginas">Paginas</label>
-                            <input type="number" name="paginas" id="paginas">
-                        </div>
-
-                        <div class="campo-input">
-                            <p>Ativo:</p>
-                            <label for="ativado">Sim</label>
-                            <input type="radio" name="situacao" id="ativado" value="1">
-                            <label for="desativado">Não</label>
-                            <input type="radio" name="situacao" id="desativado" value="0">
+                        <label for="sinopse" id='sinopse-label'>Sinopse</label>
+                        <textarea name="sinopse" id="sinopse" cols="30" rows="10" placeholder="Era uma vez..." <?=!empty($erros['SINOPSE']) ? $boxError: "VALUE='$sinopse'"?>></textarea>
                         </div>
                     </div><!-- right -->             
                 </div><!-- inputs -->
 
-                <div class="campo-input">
-                        <label for="sinopse">Sinopse</label>
-                        <textarea name="sinopse" id="sinopse" cols="30" rows="10" placeholder="Era uma vez..."></textarea>
-                </div>
 
-                <input type="submit" value="Cadastrar">
+
+                <input type="submit" value="Cadastrar" name='btn_cadastrar'>
             </form>
 
         </div><!-- autor-inputs -->
     </section><!-- cadastrar-livro -->
+    <script src="../js/admin.js"></script>
 </body>
 </html>

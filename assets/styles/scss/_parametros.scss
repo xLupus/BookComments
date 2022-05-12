@@ -36,3 +36,21 @@ $bodyColor: #E8EAED;
     padding: 0;
     box-sizing: border-box;
 }
+
+.validation-error{
+    width: 100%;
+    background-color: rgb(243, 178, 178);
+    color: rgb(150, 22, 5);
+    font-weight: bold;
+    padding: 20px 10px;
+    box-shadow: 0px 0px 11px red;
+
+
+    li{
+        list-style: none;
+    }
+}
+
+.box-error{
+    border: 3px solid rgb(202, 8, 8);
+}

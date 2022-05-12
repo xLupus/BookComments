@@ -8,15 +8,25 @@
     <link rel="stylesheet" href="../assets/styles/css/admin-area.css">
 </head>
 <body>
-
     <section class='registrar-autor'> <!-- mudar registrar para cadastrar -->
         <h1>Cadastrar - Livro</h1>
         <hr>
+        <?php
+            if(isset($confirmation)){
+                echo $confirmation;
 
-        <div class="validation-ok">
-            <p>Autor cadastrado com sucesso</p>
-        </div> 
+            }elseif(isset($erros) && !empty($erros) ){
+                echo "<div class='validation-error'>
+                        <ul>";
 
+                foreach ($erros as $campo => $erro) {
+                    echo "<li>$erro $campo </li>";
+                }
+
+                echo "  </ul>
+                    </div>";
+            }
+        ?>
         <div class="autor-inputs">
             <form action="../php/validar-autor.php" method='POST' enctype='multipart/form-data'>
 
@@ -31,12 +41,12 @@
                     </div><!-- left -->
 
                     <div class="right">
-                        <input type="text" name="nome" id="" placeholder='Nome do Autor'>
-                        <textarea name="sobre" id="" cols="30" rows="10" placeholder='Sobre o autor...'></textarea>
+                        <input type="text" name="nome" id="" placeholder='Nome do Autor' <?=(!empty($erros['AUTOR']) && isset($nomeAutor) )   ?$boxError: "VALUE='$nomeAutor'"?>>
+                        <textarea name="sobre" id="" cols="30" rows="10" placeholder='Sobre o autor...' <?=!empty($erros['SOBRE']) ? $boxError: "VALUE='$sobreAutor'"?> ></textarea>
                     </div><!-- right -->
                 </div><!-- inputs -->
 
-                <input type="submit" value="Cadastrar">
+                <input type="submit" value="Cadastrar" name="btn_cadastrar">
             </form>
 
         </div><!-- autor-inputs -->

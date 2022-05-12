@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+.validation-error {
+  width: 100%;
+  background-color: #f3b2b2;
+  color: #961605;
+  font-weight: bold;
+  padding: 20px 10px;
+  box-shadow: 0px 0px 11px red;
+}
+
+.validation-error li {
+  list-style: none;
+}
+
+.box-error {
+  border: 3px solid #ca0808;
+}
+
 .registrar-autor {
   margin: 60px auto 0px auto;
   max-width: 1280px;
@@ -15,15 +32,6 @@
 
 .registrar-autor hr {
   margin: 10px 0 40px 0;
-}
-
-.registrar-autor .validation-ok {
-  width: 100%;
-  background-color: #aff75d;
-  color: #119605;
-  font-weight: bold;
-  padding: 20px 10px;
-  box-shadow: 0px 0px 11px rgba(175, 247, 93, 0.25);
 }
 
 .registrar-autor .autor-inputs form .inputs {
