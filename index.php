@@ -1,4 +1,4 @@
-<?php require 'php/access-control.php'; var_dump($_SESSION);?>
+<?php require 'php/includes/access-control.php'; var_dump($_SESSION);?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,6 +9,11 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="php/logout.php">sair</a>
+    <ul>
+        <li><a href="php/includes/logout.php">sair</a></li>
+        <li><a href="php/validar-livro.php">Cadastras Livro</a></li>
+        <li><a href="php/validar-autor.php">Cadastras Autor</a></li>
+    </ul>
+
 </body>
 </html>

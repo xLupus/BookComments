@@ -8,6 +8,7 @@
     align-items: center;
     overflow: hidden;
 
+
     .left-img-login{
         background-image: url('../../images/imagem-login.png');
         height: 100vh;
@@ -75,6 +76,7 @@
                 }
 
             }
+
 
             #login,#cadastro{
                 @include BTN;

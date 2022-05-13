@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+.validation-error {
+  width: 100%;
+  background-color: #f3b2b2;
+  color: #961605;
+  font-weight: bold;
+  padding: 20px 10px;
+}
+
+.validation-error li {
+  list-style: none;
+}
+
+.box-error {
+  border: 3px solid #ca0808;
+}
+
 .center {
   max-width: 1440px;
   height: 100vh;

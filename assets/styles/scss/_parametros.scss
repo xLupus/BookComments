@@ -1,5 +1,11 @@
 $btn-brown: #513427;
 $btn-yellow: #FFB94D;
+$containerColor: #F4F4F4;
+$bodyColor: #E8EAED;
+
+@mixin boxShadow{
+    box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25);
+}
 
 @mixin BTN {
     background-color: $btn-yellow;
@@ -13,9 +19,37 @@ $btn-yellow: #FFB94D;
     cursor: pointer;
 }
 
+@mixin BTN_CADASTRO{
+    height: 50px;
+    width: 270px;
+    background-color: $btn-brown;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    margin-top: 35px;
+    
+}
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.validation-error{
+    width: 100%;
+    background-color: rgb(243, 178, 178);
+    color: rgb(150, 22, 5);
+    font-weight: bold;
+    padding: 20px 10px;
+
+
+    li{
+        list-style: none;
+    }
+}
+
+.box-error{
+    border: 3px solid rgb(202, 8, 8);
 }
