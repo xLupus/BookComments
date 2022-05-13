@@ -18,7 +18,7 @@
                 <p id="boas-vindas">Bem-vindo de volta ao <u>Book Comments</u>!</p>
                 <h1>Acesse sua conta</h1>
 
-                <form action="../php/login-user.php" method="POST">
+                <form action="../php/validar-login.php" method="POST">
                     
                     <div class="input-container">
                         <label for="email">Email</label>
@@ -50,7 +50,7 @@
                 </form><!-- from -->
 
                 
-                <a href="../php/cadastrar-user.php"><button id="link-btn">Registrar-se</button></a>
+                <a href="../php/validar-cadastro.php"><button id="link-btn">Registrar-se</button></a>
             </div><!-- right-content -->
         </div><!-- right -->
     </div><!-- center -->

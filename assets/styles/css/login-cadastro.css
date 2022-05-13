@@ -16,8 +16,16 @@
   list-style: none;
 }
 
+.validation-ok {
+  width: 100%;
+  background-color: #d5f3b2;
+  color: #05961d;
+  font-weight: bold;
+  padding: 20px 10px;
+}
+
 .box-error {
-  border: 3px solid #ca0808;
+  border: 3px solid #ca0808 !important;
 }
 
 .center {

@@ -16,8 +16,16 @@
   list-style: none;
 }
 
+.validation-ok {
+  width: 100%;
+  background-color: #d5f3b2;
+  color: #05961d;
+  font-weight: bold;
+  padding: 20px 10px;
+}
+
 .box-error {
-  border: 3px solid #ca0808;
+  border: 3px solid #ca0808 !important;
 }
 
 .cadastrar-livro {
@@ -91,7 +99,7 @@
   margin-right: 20px;
 }
 
-.cadastrar-livro .livro-inputs form .inputs .right input[type=text] {
+.cadastrar-livro .livro-inputs form .inputs .right input[type=text], .cadastrar-livro .livro-inputs form .inputs .right input[list=autores] {
   width: 350px;
   height: 50px;
   border-radius: 10px;

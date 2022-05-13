@@ -15,7 +15,7 @@ if(isset($_POST['btn_cadastrar'])){
 
 
     if(!empty($nome)){
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRIPPED);     
+        $nome = htmlspecialchars($nome, ENT_COMPAT, 'UTF-8');    
     }else{$erros["NOME"] = "Preencha o campo";}
 
 
@@ -27,23 +27,21 @@ if(isset($_POST['btn_cadastrar'])){
     if(empty($senha)){
         $erros["SENHA"] = "Preencha o campo";
     }
-    /*
-    if(!empty($senha)){
-        $senha = filter_input(INPUT_POST, 'sobre', FILTER_SANITIZE_STRIPPED); 
-    }else{ $erros["SENHA"] = "Preencha o campo";}
-    */
+
 
     if(empty($erros)){
         $senha = password_hash($senha, PASSWORD_BCRYPT);
 
-        $checagem = $database->prepare('SELECT email FROM Usuario WHERE email = :email');
+
+        $checagem = $database->prepare('SELECT email FROM tbUsuario WHERE email = :email');
         $checagem->bindParam(':email', $email);
         $checagem->execute();
         $c = $checagem->fetch(PDO::FETCH_ASSOC);
         
+
         if($c == false){ //Se o email n existir no BD
             
-            $stmt = $database->prepare("INSERT INTO Usuario (nomeUser,email,senha,permissao)
+            $stmt = $database->prepare("INSERT INTO tbUsuario (nomeUser,email,senha,permissao)
                                         VALUES (:nome, :email, :senha, 'u')");
         
             $stmt->bindParam(':nome',$nome);
@@ -52,18 +50,13 @@ if(isset($_POST['btn_cadastrar'])){
         
             if($stmt->execute()){
 
-                $query = $database->prepare('SELECT idUsuario FROM Usuario WHERE email = :email');
-                $query->bindParam(':email',$email);
-                $query->execute();
+                $idUser = $database->lastInsertId();
+                               
+                $_SESSION['id'] = $idUser;
+                $_SESSION['permissao'] = 'u';
+                
+                header('location: ../index.php');
 
-                if( $idUser = $query->fetch(PDO::FETCH_ASSOC) ){
-                    
-                    session_start();
-                    $_SESSION['id'] = $idUser['idUsuario'];
-                    $_SESSION['permissao'] = 'u';
-                    
-                    header('location: ../index.php');
-                }
             }
         }else{$erros["EMAIL"] = "Valor do campo ja cadastrado";}
     }

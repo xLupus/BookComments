@@ -50,6 +50,15 @@ $bodyColor: #E8EAED;
     }
 }
 
+.validation-ok{
+    width: 100%;
+    background-color: rgb(213, 243, 178);
+    color: rgb(5, 150, 29);
+    font-weight: bold;
+    padding: 20px 10px;
+}
+
+
 .box-error{
-    border: 3px solid rgb(202, 8, 8);
+    border: 3px solid rgb(202, 8, 8) !important;
 }

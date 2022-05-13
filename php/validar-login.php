@@ -11,6 +11,7 @@ if(isset($_POST['btn_entrar'])){
     $senha = trim($_POST['senha'], '');
     $erros = [];
 
+    //var_dump($email,$senha);
 
     if(!empty($email)){
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL); 
@@ -20,15 +21,10 @@ if(isset($_POST['btn_entrar'])){
     if(empty($senha)){
         $erros["SENHA"] = "Preencha o campo";
     }
-    /*
-    if(!empty($senha)){
-        $senha = filter_input(INPUT_POST, 'sobre', FILTER_SANITIZE_STRIPPED); 
-    }else{ $erros["SENHA"] = "Preencha o campo";}
-    */
     
     if(empty($erros)){
 
-        $stmt = $database->prepare('SELECT idUsuario, email, senha, permissao FROM Usuario WHERE email = :email');
+        $stmt = $database->prepare('SELECT idUsuario, email, senha, permissao FROM tbUsuario WHERE email = :email');
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $c = $stmt->fetch(PDO::FETCH_ASSOC);

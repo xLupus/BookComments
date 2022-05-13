@@ -45,10 +45,22 @@
                             <input type="text" name="titulo" id="titulo"<?=!empty($erros['TITULO'])? "class='box-error'": "value='$titulo'"?>>
                         </div>
 
+
                         <div class="campo-input">
+                            
                             <label for="autor">Autor(a)</label>
-                            <input type="text" name="autor" id="autor">
+                            <input list="autores" name="autor" id="autor">
+
+                            <datalist id="autores">
+                                <?php
+                                
+                                for($i = 0; $i < count($nomeAutor); $i++){
+                                    echo "<option value='{$idAutor[$i]}'>{$nomeAutor[$i]}</option>";  
+                                }
+                                ?>
+                            </datalist>
                         </div>
+
 
                         <div class='row'>
                             <div class="campo-input">

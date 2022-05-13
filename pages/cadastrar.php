@@ -18,7 +18,7 @@
                 <p id="boas-vindas">Comece a sua jornada</p>
                 <h1>Faça seu Cadastro</h1>
 
-                <form action="../php/cadastrar-user.php" method="POST">
+                <form action="../php/validar-cadastro.php" method="POST">
                     <div class="input-container">
                         <label for="nome">Nome Completo</label>
                         <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" <?=!empty($erros['NOME'])?"class='box-error'": "value='$nome'"?>>
@@ -52,7 +52,7 @@
                     <input type="submit" value="Registrar" id="cadastro" name="btn_cadastrar">
                 </form>
 
-                <a href="../php/login-user.php"><button id="link-btn">Voltar</button></a>
+                <a href="../php/validar-login.php"><button id="link-btn">Voltar</button></a>
             </div><!-- right-content -->
         </div><!-- right -->
     </div><!-- center -->

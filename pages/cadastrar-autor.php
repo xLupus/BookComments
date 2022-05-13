@@ -32,7 +32,7 @@
 
                 <div class="inputs">
                     <div class="left">
-                        <div class='img-container'>
+                        <div class='img-container' <?=!empty($erros['IMAGEM'])?'class="box-error"':""?>>
                             <img id="img-preview" src="" >
                         </div>
 
@@ -41,9 +41,9 @@
                     </div><!-- left -->
 
                     <div class="right">
-                        <input type="text" name="nome" id="" placeholder='Nome do Autor' <?=(!empty($erros['AUTOR']) && isset($nomeAutor) )?"class='box-error'": "value='$nomeAutor'"?>>
+                        <input type="text" name="nome" id="" placeholder='Nome do Autor' <?=(!empty($erros['AUTOR']) && isset($nome))?"class='box-error'": "value='$nome'"?>>
                         
-                        <textarea name="sobre" id="" cols="30" rows="10" placeholder='Sobre o autor...' <?=!empty($erros['SOBRE']) ?"class='box-error'": "value='$sobreAutor'"?> ></textarea>
+                        <textarea name="sobre" id="" cols="30" rows="10" placeholder='Sobre o autor...' <?=!empty($erros['SOBRE']) ?"class='box-error'": "value='$sobre'"?> ></textarea>
                     </div><!-- right -->
                 </div><!-- inputs -->
 

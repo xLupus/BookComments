@@ -2,28 +2,25 @@
 
 require_once 'includes/database-connection.php';
 
-$nomeAutor = '';
-$sobreAutor = '';
-$lancamento = '';
-$edicao = '';
-
+$nome = '';
+$sobre = '';
 
 if(isset($_POST['btn_cadastrar'])){
-    $nomeAutor = $_POST['nome'];
-    $sobreAutor = $_POST['sobre'];
+    $nome = $_POST['nome'];
+    $sobre = $_POST['sobre'];
     $arquivoEnviado = '';
     $erros = [];
 
-    if(!empty($nomeAutor)){
-        $nomeAutor = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRIPPED); 
+    if(!empty($nome)){
+        $nome = htmlspecialchars($nome, ENT_COMPAT, 'UTF-8');
     }else{$erros["AUTOR"] = "Preencha o campo";}
 
 
-    if(!empty($sobreAutor)){
-        $sobreAutor = filter_input(INPUT_POST, 'sobre', FILTER_SANITIZE_STRIPPED); 
+    if(!empty($sobre)){
+        $sobre = htmlspecialchars($sobre, ENT_COMPAT, 'UTF-8');
     }else{ $erros["SOBRE"] = "Preencha o campo";}
-    
 
+    
     if($_FILES['imagem']['error'] == 0  && $_FILES['imagem']['size'] > 0){ //inserir imagem
 
             $mimeType = mime_content_type($_FILES['imagem']['tmp_name']);
@@ -42,11 +39,11 @@ if(isset($_POST['btn_cadastrar'])){
                
     if(empty($erros)){
         //try e catch?
-        $stmt = $database->prepare('INSERT INTO Autor (nomeAutor, sobreAutor, foto)
+        $stmt = $database->prepare('INSERT INTO tbAutor (nome, sobre, foto)
                                     VALUES (:nome, :sobre, :diretorioFoto)');
 
-        $stmt->bindParam(':nome', $nomeAutor);
-        $stmt->bindParam(':sobre', $sobreAutor);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':sobre', $sobre);
         $stmt->bindParam(':diretorioFoto', $arquivoEnviado);
 
         if($stmt->execute()){

@@ -13,9 +13,20 @@ $paginas = '';
 $sinopse = '';
 $situacao = '';
 
+//Busca os autores para o datalist
+$stmt = $database->query("SELECT idAutor, nome FROM tbAutor");
+$stmt->execute();
+
+while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
+    $idAutor[] = $autores['idAutor'];
+    $nomeAutor[] = $autores['nome'];
+
+}
+//
+
 if(isset($_POST['btn_cadastrar']) ){
     $titulo       = $_POST['titulo'];
-    //$autor        = $_POST['autor'];
+    $autor        = $_POST['autor'];
     $lancamento   = $_POST['lancamento'];
     $edicao       = $_POST['edicao'];
     $volume       = $_POST['volume'];
@@ -23,13 +34,27 @@ if(isset($_POST['btn_cadastrar']) ){
     $sinopse      = $_POST['sinopse'];
     $situacao     = $_POST['situacao'];
 
+
+
     //ARRAY DE ERROS
     $erros = [];
 
     //LIMPEZA E VALIDAÇÃO
     if(!empty($titulo)){
-        $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRIPPED);     
+        $titulo =  htmlspecialchars($titulo, ENT_COMPAT, 'UTF-8');     
     }else{$erros["TITULO"] = "Preencha o campo";}
+
+    if(!empty($autor)){
+        $autor = htmlspecialchars($autor, ENT_COMPAT, 'UTF-8');    
+
+    }else{$erros["AUTOR"] = "Preencha o campo";}
+
+    if(!empty($autor)){
+        $autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_NUMBER_INT);
+        if( !filter_var($autor, FILTER_VALIDATE_INT) )
+            $erros["AUTOR"] = "Valor invalido no campo";  
+
+    }else{$erros["AUTOR"] = "Preencha o campo";}
 
 
     if(!empty($lancamento)){
@@ -64,10 +89,10 @@ if(isset($_POST['btn_cadastrar']) ){
     }else{$erros["PAGINAS"] = "Preencha o campo";}
 
 
-    if (!empty($sinopse)) 
-        $sinopse = filter_input(INPUT_POST, 'sinopse', FILTER_SANITIZE_STRIPPED);
+    if (!empty($sinopse)){
+        $sinopse = htmlspecialchars($sinopse, ENT_COMPAT, 'UTF-8');
 
-    else{$erros["SINOPSE"] = "Preencha o campo";}
+    }else{$erros["SINOPSE"] = "Preencha o campo";}
 
     
     if(empty($situacao)){
@@ -96,19 +121,28 @@ if(isset($_POST['btn_cadastrar']) ){
 
 
     if(empty($erros)){
-        //try e catch?
-        $stmt = $database->prepare('INSERT INTO Livro (titulo,  capa,   anoLanc,     edicao,  volume,  numPag,   sinopse,  situacao)
-                                    VALUES (:titulo, :capa, :lancamento, :edicao, :volume, :paginas, :sinopse, :situacao)');
 
+        $tbSinopse = $database->prepare('INSERT INTO tbSinopse (sinopse) VALUES (:sinopse)');
+        $tbSinopse->bindParam(':sinopse',  $sinopse);
+
+        if($tbSinopse->execute()){
+            $idSinopse = $database->lastInsertId();
+        }else{$erros['SINOPSE'] = 'Erro ao adicionar a ';}
+
+
+        $stmt = $database->prepare('INSERT INTO tbLivro (idSinopse, idAutor, titulo, capa, Lancamento, edicao, volume, numPag, situacao)
+                                    VALUES (:idSinopse, :autor, :titulo, :capa, :lancamento, :edicao, :volume, :paginas, :situacao)');
+
+
+        $stmt->bindParam(':idSinopse',  $idSinopse );
+        $stmt->bindParam(':autor',      $autor );
         $stmt->bindParam(':titulo',     $titulo );
         $stmt->bindParam(':capa',       $arquivoEnviado);
         $stmt->bindParam(':lancamento', $lancamento );
         $stmt->bindParam(':edicao',     $edicao );
         $stmt->bindParam(':volume',     $volume);
         $stmt->bindParam(':paginas',    $paginas);
-        $stmt->bindParam(':sinopse',    $sinopse);
         $stmt->bindParam(':situacao',   $situacao);
-        //Autor posteriormente
 
         if($stmt->execute()){
             $confirmation =  "<div class='validation-ok'>
@@ -120,7 +154,6 @@ if(isset($_POST['btn_cadastrar']) ){
                               </div>";
         }
     }
-   
 }
 
 include '../pages/cadastrar-livro.php';
