@@ -22,14 +22,15 @@
                     
                     <div class="input-container">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Digite seu E-mail" <?=!empty($erros['EMAIL'])? $boxError: "VALUE='$email'"?>>
+                        <input type="email" name="email" id="email" placeholder="Digite seu E-mail" <?=!empty($erros['EMAIL'])? "class='box-error'": "value='$email'"?>>
                     </div><!-- input-container -->
 
                     <div class="input-container">
                         <label for="senha" >Senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha"<?=!empty($erros['SENHA'])? $boxError: ''?>>
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha"<?=!empty($erros['SENHA'])? "class='box-error'": ''?>>
                         <i class="fa-solid fa-eye-slash"></i>
                     </div><!-- input-container -->
+
 
                     <?php
                         if(isset($erros) && !empty($erros) ){

@@ -2,8 +2,6 @@
 
 require_once 'includes/database-connection.php';
 
-$boxError = 'class="box-error"';
-
 $nomeAutor = '';
 $sobreAutor = '';
 $lancamento = '';

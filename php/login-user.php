@@ -3,7 +3,6 @@
 require_once 'includes/database-connection.php';
 include '../php/includes/applica-control.php';
 
-$boxError = 'class="box-error"';
 $email = '';
 $senha = '';
 

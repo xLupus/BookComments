@@ -3,7 +3,6 @@
 include '../php/includes/applica-control.php';
 require_once 'includes/database-connection.php';
 
-$boxError = 'class="box-error"';
 $nome  = '' ;
 $email = '';
 $senha = '';
@@ -21,7 +20,7 @@ if(isset($_POST['btn_cadastrar'])){
 
 
     if(!empty($email)){
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL); 
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     }else{$erros["EMAIL"] = "Preencha o campo";}
 
 

@@ -3,7 +3,6 @@
 require_once 'includes/database-connection.php';
 
 //insert da sinopse é feito em outra tabela 
-$boxError = 'class="box-error"';
 
 $titulo = '';
 $autor = '';
@@ -30,14 +29,13 @@ if(isset($_POST['btn_cadastrar']) ){
     //LIMPEZA E VALIDAÇÃO
     if(!empty($titulo)){
         $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRIPPED);     
-
     }else{$erros["TITULO"] = "Preencha o campo";}
 
 
     if(!empty($lancamento)){
         $lancamento = filter_input(INPUT_POST, 'lancamento', FILTER_SANITIZE_NUMBER_INT);
         if( !filter_var($lancamento, FILTER_VALIDATE_INT) )
-            $erros["LANCAMENTO"] = "Valor invalido no campo";   
+            $erros["LANCAMENTO"] = "Valor invalido no campo";  
 
     }else{$erros["LANCAMENTO"] = "Preencha o campo";}
 
@@ -74,7 +72,6 @@ if(isset($_POST['btn_cadastrar']) ){
     
     if(empty($situacao)){
         $erros['SITUACAO'] = "Preencha o campo";
-
     }
 
 

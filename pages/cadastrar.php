@@ -21,17 +21,17 @@
                 <form action="../php/cadastrar-user.php" method="POST">
                     <div class="input-container">
                         <label for="nome">Nome Completo</label>
-                        <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" <?=!empty($erros['NOME'])? $boxError: "VALUE='$nome'"?>>
+                        <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" <?=!empty($erros['NOME'])?"class='box-error'": "value='$nome'"?>>
                     </div><!-- input-container -->
 
                     <div class="input-container">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Digite seu E-mail" <?=!empty($erros['EMAIL'])? $boxError: "VALUE='$email'"?>>
+                        <input type="email" name="email" id="email" placeholder="Digite seu E-mail" <?=!empty($erros['EMAIL'])?"class='box-error'": "value='$email'"?>>
                     </div><!-- input-container -->
 
                     <div class="input-container">
                         <label for="senha">Senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" <?=!empty($erros['SENHA'])? $boxError: ""?>>
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" <?=!empty($erros['SENHA'])?"class='box-error'": ""?>>
                         <i class="fa-solid fa-eye-slash"></i>
                     </div><!-- input-container -->
 

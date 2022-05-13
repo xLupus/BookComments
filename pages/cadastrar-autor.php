@@ -41,8 +41,9 @@
                     </div><!-- left -->
 
                     <div class="right">
-                        <input type="text" name="nome" id="" placeholder='Nome do Autor' <?=(!empty($erros['AUTOR']) && isset($nomeAutor) )   ?$boxError: "VALUE='$nomeAutor'"?>>
-                        <textarea name="sobre" id="" cols="30" rows="10" placeholder='Sobre o autor...' <?=!empty($erros['SOBRE']) ? $boxError: "VALUE='$sobreAutor'"?> ></textarea>
+                        <input type="text" name="nome" id="" placeholder='Nome do Autor' <?=(!empty($erros['AUTOR']) && isset($nomeAutor) )?"class='box-error'": "value='$nomeAutor'"?>>
+                        
+                        <textarea name="sobre" id="" cols="30" rows="10" placeholder='Sobre o autor...' <?=!empty($erros['SOBRE']) ?"class='box-error'": "value='$sobreAutor'"?> ></textarea>
                     </div><!-- right -->
                 </div><!-- inputs -->
 

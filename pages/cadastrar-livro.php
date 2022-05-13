@@ -35,14 +35,14 @@
                             <img id="img-preview" src="" >
                         </div>
 
-                        <label for="img-input" <?=!empty($erros['IMAGEM']) ? $boxError: ''?>>Adicionar foto</label>
+                        <label for="img-input" <?=!empty($erros['IMAGEM'])?"class='box-error'": ''?>>Adicionar foto</label>
                         <input type="file" name="imagem" id="img-input" >
                     </div><!-- left -->
 
                     <div class="right">
                         <div class="campo-input">
                             <label for="titulo">Titulo em Portugues</label>
-                            <input type="text" name="titulo" id="titulo"<?=!empty($erros['TITULO']) ? $boxError: "VALUE='$titulo'"?>>
+                            <input type="text" name="titulo" id="titulo"<?=!empty($erros['TITULO'])? "class='box-error'": "value='$titulo'"?>>
                         </div>
 
                         <div class="campo-input">
@@ -53,24 +53,24 @@
                         <div class='row'>
                             <div class="campo-input">
                                 <label for="lancamento">Lançamento</label>
-                                <input type="number" name="lancamento" id="lancamento" <?=!empty($erros['LANCAMENTO']) ? $boxError: "VALUE='$lancamento'"?>>
+                                <input type="number" name="lancamento" id="lancamento" <?=!empty($erros['LANCAMENTO']) ? "class='box-error'": "value='$lancamento'"?>>
                             </div>
     
                             <div class="campo-input">
                                 <label for="edicao">Edição</label>
-                                <input type="number" name="edicao" id="edicao" <?=!empty($erros['EDICAO'])?$boxError:"VALUE='$edicao'"?>>
+                                <input type="number" name="edicao" id="edicao" <?=!empty($erros['EDICAO'])?"class='box-error'":"value='$edicao'"?>>
                             </div>
     
                             <div class="campo-input">
                                 <label for="volume">Volume</label>
-                                <input type="number" name="volume" id="volume"<?=!empty($erros['VOLUME']) ? $boxError: "VALUE='$volume'"?>>
+                                <input type="number" name="volume" id="volume"<?=!empty($erros['VOLUME'])?"class='box-error'": "value='$volume'"?>>
                             </div>
                         </div><!-- row -->
 
                         <div class="row">
                             <div class="campo-input">
                                 <label for="paginas">Paginas</label>
-                                <input type="number" name="paginas" id="paginas"<?=!empty($erros['PAGINAS']) ? $boxError: "VALUE='$paginas'"?>>
+                                <input type="number" name="paginas" id="paginas"<?=!empty($erros['PAGINAS']) ?"class='box-error'": "value='$paginas'"?>>
                             </div>
     
                             <div id='status'>
@@ -84,7 +84,7 @@
 
                         <div class="campo-input">
                         <label for="sinopse" id='sinopse-label'>Sinopse</label>
-                        <textarea name="sinopse" id="sinopse" cols="30" rows="10" placeholder="Era uma vez..." <?=!empty($erros['SINOPSE']) ? $boxError: "VALUE='$sinopse'"?>></textarea>
+                        <textarea name="sinopse" id="sinopse" cols="30" rows="10" placeholder="Era uma vez..." <?=!empty($erros['SINOPSE'])?"class='box-error'": "value='$sinopse'"?>></textarea>
                         </div>
                     </div><!-- right -->             
                 </div><!-- inputs -->
