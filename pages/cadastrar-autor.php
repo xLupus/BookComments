@@ -9,7 +9,7 @@
 </head>
 <body>
     <section class='registrar-autor'> <!-- mudar registrar para cadastrar -->
-        <h1>Cadastrar - Livro</h1>
+        <h1>Cadastrar - Autor</h1>
         <hr>
         <?php
             if(isset($confirmation)){
@@ -43,7 +43,7 @@
                     <div class="right">
                         <input type="text" name="nome" id="" placeholder='Nome do Autor' <?=(!empty($erros['AUTOR']) && isset($nome))?"class='box-error'": "value='$nome'"?>>
                         
-                        <textarea name="sobre" id="" cols="30" rows="10" placeholder='Sobre o autor...' <?=!empty($erros['SOBRE']) ?"class='box-error'": "value='$sobre'"?> ></textarea>
+                        <textarea name="sobre" id="" cols="30" rows="10" placeholder='Sobre o autor...' <?=!empty($erros['SOBRE']) ?"class='box-error'": ""?>><?=empty($erros['SOBRE'])?$sobre:""?></textarea>
                     </div><!-- right -->
                 </div><!-- inputs -->
 

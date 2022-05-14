@@ -33,7 +33,7 @@ if(isset($_POST['btn_cadastrar'])){
         $senha = password_hash($senha, PASSWORD_BCRYPT);
 
 
-        $checagem = $database->prepare('SELECT email FROM tbUsuario WHERE email = :email');
+        $checagem = $database->prepare('SELECT email FROM BK_tbUsuario WHERE email = :email');
         $checagem->bindParam(':email', $email);
         $checagem->execute();
         $c = $checagem->fetch(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ if(isset($_POST['btn_cadastrar'])){
 
         if($c == false){ //Se o email n existir no BD
             
-            $stmt = $database->prepare("INSERT INTO tbUsuario (nomeUser,email,senha,permissao)
+            $stmt = $database->prepare("INSERT INTO BK_tbUsuario (nome, email, senha, permissao)
                                         VALUES (:nome, :email, :senha, 'u')");
         
             $stmt->bindParam(':nome',$nome);

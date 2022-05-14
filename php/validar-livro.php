@@ -2,8 +2,6 @@
 
 require_once 'includes/database-connection.php';
 
-//insert da sinopse é feito em outra tabela 
-
 $titulo = '';
 $autor = '';
 $lancamento = '';
@@ -14,7 +12,7 @@ $sinopse = '';
 $situacao = '';
 
 //Busca os autores para o datalist
-$stmt = $database->query("SELECT idAutor, nome FROM tbAutor");
+$stmt = $database->query("SELECT idAutor, nome FROM BK_tbAutor");
 $stmt->execute();
 
 while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -35,7 +33,6 @@ if(isset($_POST['btn_cadastrar']) ){
     $situacao     = $_POST['situacao'];
 
 
-
     //ARRAY DE ERROS
     $erros = [];
 
@@ -52,39 +49,41 @@ if(isset($_POST['btn_cadastrar']) ){
     if(!empty($autor)){
         $autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_NUMBER_INT);
         if( !filter_var($autor, FILTER_VALIDATE_INT) )
-            $erros["AUTOR"] = "Valor invalido no campo";  
+            $erros["AUTOR"] = "Valor invalido no campo";
+
+        //validar se autor esta no BD
 
     }else{$erros["AUTOR"] = "Preencha o campo";}
 
 
     if(!empty($lancamento)){
-        $lancamento = filter_input(INPUT_POST, 'lancamento', FILTER_SANITIZE_NUMBER_INT);
-        if( !filter_var($lancamento, FILTER_VALIDATE_INT) )
-            $erros["LANCAMENTO"] = "Valor invalido no campo";  
+        $lancamento = preg_replace('/\D/', '', $lancamento);
+        if(empty($lancamento))
+            $erros["LANCAMENTO"] = "Insira um valor valido no campo";  
 
     }else{$erros["LANCAMENTO"] = "Preencha o campo";}
 
 
     if(!empty($edicao)){
-        $edicao = filter_input(INPUT_POST, 'edicao', FILTER_SANITIZE_NUMBER_INT);
-        if( !filter_var($edicao,FILTER_VALIDATE_INT ) )
-            $erros["EDICAO"] =  "Valor invalido no campo"; 
+        $edicao = preg_replace('/\D/', '', $edicao);
+        if(empty($edicao))
+            $erros["EDICAO"] = "Insira um valor valido no campo";  
 
-    }else{$erros["EDICAO"] =  "Preencha o campo";}
+    }else{$erros["EDICAO"] = "Preencha o campo";}
 
 
     if(!empty($volume)){
-        $volume = filter_input(INPUT_POST, 'volume', FILTER_SANITIZE_NUMBER_INT);
-        if( !filter_var($volume,FILTER_VALIDATE_INT ) )
-            $erros["VOLUME"] = "Valor invalido no campo";  
+        $volume = preg_replace('/\D/', '', $volume);
+        if(empty($volume))
+            $erros["VOLUME"] = "Insira um valor valido no campo";  
 
-    }else{$erros["VOLUME"] =  "Preencha o campo";}
+    }else{$erros["VOLUME"] = "Preencha o campo";}
 
 
     if(!empty($paginas)){
-        $paginas = filter_input(INPUT_POST, 'paginas', FILTER_SANITIZE_NUMBER_INT);
-        if( !filter_var($paginas, FILTER_VALIDATE_INT) )
-            $erros["PAGINAS"] = "Valor invalido no campo";  
+        $paginas = preg_replace('/\D/', '', $paginas);
+        if(empty($paginas))
+            $erros["PAGINAS"] = "Insira um valor valido no campo";  
 
     }else{$erros["PAGINAS"] = "Preencha o campo";}
 
@@ -122,7 +121,7 @@ if(isset($_POST['btn_cadastrar']) ){
 
     if(empty($erros)){
 
-        $tbSinopse = $database->prepare('INSERT INTO tbSinopse (sinopse) VALUES (:sinopse)');
+        $tbSinopse = $database->prepare('INSERT INTO BK_tbSinopse (sinopse) VALUES (:sinopse)');
         $tbSinopse->bindParam(':sinopse',  $sinopse);
 
         if($tbSinopse->execute()){
@@ -130,7 +129,7 @@ if(isset($_POST['btn_cadastrar']) ){
         }else{$erros['SINOPSE'] = 'Erro ao adicionar a ';}
 
 
-        $stmt = $database->prepare('INSERT INTO tbLivro (idSinopse, idAutor, titulo, capa, Lancamento, edicao, volume, numPag, situacao)
+        $stmt = $database->prepare('INSERT INTO BK_tbLivro (idSinopse, idAutor, titulo, capa, Lancamento, edicao, volume, numPag, situacao)
                                     VALUES (:idSinopse, :autor, :titulo, :capa, :lancamento, :edicao, :volume, :paginas, :situacao)');
 
 

@@ -28,7 +28,7 @@
             }
         ?>
         <div class="livro-inputs">
-            <form action="../php/validar-livro.php" method='POST' enctype='multipart/form-data'>
+            <form action="../php/validar-livro.php" method='POST' enctype='multipart/form-data' id='formulario'>
                 <div class="inputs">
                     <div class="left">
                         <div class='img-container'>
@@ -49,14 +49,19 @@
                         <div class="campo-input">
                             
                             <label for="autor">Autor(a)</label>
-                            <input list="autores" name="autor" id="autor">
+                            <input list="autores" name="autor" id="autor" <?=!empty($erros['AUTOR']) ? "class='box-error'": "value='$autor'"?>>
 
                             <datalist id="autores">
                                 <?php
                                 
-                                for($i = 0; $i < count($nomeAutor); $i++){
-                                    echo "<option value='{$idAutor[$i]}'>{$nomeAutor[$i]}</option>";  
+                                if(isset($nomeAutor) && !empty($nomeAutor)){
+                                    for($i = 0; $i < count($nomeAutor); $i++){
+                                        echo "<option value='{$idAutor[$i]}'>{$nomeAutor[$i]}</option>";  
+                                    }
+                                }else{
+                                    echo '';
                                 }
+
                                 ?>
                             </datalist>
                         </div>
@@ -65,24 +70,24 @@
                         <div class='row'>
                             <div class="campo-input">
                                 <label for="lancamento">Lançamento</label>
-                                <input type="number" name="lancamento" id="lancamento" <?=!empty($erros['LANCAMENTO']) ? "class='box-error'": "value='$lancamento'"?>>
+                                <input type="text" name="lancamento" id="lancamento"<?=!empty($erros['LANCAMENTO']) ? "class='box-error'": "value='$lancamento'"?>>
                             </div>
     
                             <div class="campo-input">
                                 <label for="edicao">Edição</label>
-                                <input type="number" name="edicao" id="edicao" <?=!empty($erros['EDICAO'])?"class='box-error'":"value='$edicao'"?>>
+                                <input type="text" name="edicao" id="edicao"<?=!empty($erros['EDICAO'])?"class='box-error'":"value='$edicao'"?>>
                             </div>
     
                             <div class="campo-input">
                                 <label for="volume">Volume</label>
-                                <input type="number" name="volume" id="volume"<?=!empty($erros['VOLUME'])?"class='box-error'": "value='$volume'"?>>
+                                <input type="text" name="volume" id="volume"<?=!empty($erros['VOLUME'])?"class='box-error'": "value='$volume'"?>>
                             </div>
                         </div><!-- row -->
 
                         <div class="row">
                             <div class="campo-input">
                                 <label for="paginas">Paginas</label>
-                                <input type="number" name="paginas" id="paginas"<?=!empty($erros['PAGINAS']) ?"class='box-error'": "value='$paginas'"?>>
+                                <input type="text" name="paginas" id="paginas"<?=!empty($erros['PAGINAS']) ?"class='box-error'": "value='$paginas'"?>>
                             </div>
     
                             <div id='status'>
@@ -95,19 +100,17 @@
                         </div><!-- row -->
 
                         <div class="campo-input">
-                        <label for="sinopse" id='sinopse-label'>Sinopse</label>
-                        <textarea name="sinopse" id="sinopse" cols="30" rows="10" placeholder="Era uma vez..." <?=!empty($erros['SINOPSE'])?"class='box-error'": "value='$sinopse'"?>></textarea>
+                            <label for="sinopse" id='sinopse-label'>Sinopse</label>
+                            <textarea name="sinopse" id="sinopse" cols="30" rows="10" placeholder="Era uma vez..." form="formulario" <?=!empty($erros['SINOPSE'])?"class='box-error'": ""?>><?=empty($erros['SINOPSE'])? $sinopse : '' ?></textarea>
                         </div>
                     </div><!-- right -->             
                 </div><!-- inputs -->
 
-
-
                 <input type="submit" value="Cadastrar" name='btn_cadastrar'>
             </form>
-
         </div><!-- autor-inputs -->
     </section><!-- cadastrar-livro -->
+
     <script src="../js/admin.js"></script>
 </body>
 </html>

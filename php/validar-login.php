@@ -24,7 +24,7 @@ if(isset($_POST['btn_entrar'])){
     
     if(empty($erros)){
 
-        $stmt = $database->prepare('SELECT idUsuario, email, senha, permissao FROM tbUsuario WHERE email = :email');
+        $stmt = $database->prepare('SELECT idUsuario, email, senha, permissao FROM BK_tbUsuario WHERE email = :email');
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $c = $stmt->fetch(PDO::FETCH_ASSOC);

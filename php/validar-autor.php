@@ -22,7 +22,7 @@ if(isset($_POST['btn_cadastrar'])){
 
     
     if($_FILES['imagem']['error'] == 0  && $_FILES['imagem']['size'] > 0){ //inserir imagem
-
+            //extension=fileinfo
             $mimeType = mime_content_type($_FILES['imagem']['tmp_name']);
             $campos = explode('/', $mimeType);
             $tipo = $campos[0];
@@ -39,7 +39,7 @@ if(isset($_POST['btn_cadastrar'])){
                
     if(empty($erros)){
         //try e catch?
-        $stmt = $database->prepare('INSERT INTO tbAutor (nome, sobre, foto)
+        $stmt = $database->prepare('INSERT INTO BK_tbAutor (nome, sobre, foto)
                                     VALUES (:nome, :sobre, :diretorioFoto)');
 
         $stmt->bindParam(':nome', $nome);

@@ -50,6 +50,16 @@
 
                     .row{
                         display: flex;
+
+                        input[type=text]{
+                            padding: 0 3px;
+                            width: 80px;
+                            height: 50px;
+                            border-radius: 10px;
+                            font-size: 16px;
+                            text-align: center;
+                            outline: none;
+                        }
                     }
                     label{
                         font-size: 18px;
@@ -72,14 +82,7 @@
                         outline: none;
                     }
                     
-                    input[type=number]{
-                        width: 60px;
-                        height: 50px;
-                        border-radius: 10px;
-                        font-size: 16px;
-                        text-align: center;
-                        outline: none;
-                    }
+
 
                     #sinopse-label{
                         color: #616161;
