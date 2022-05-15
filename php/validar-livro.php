@@ -42,16 +42,18 @@ if(isset($_POST['btn_cadastrar']) ){
     }else{$erros["TITULO"] = "Preencha o campo";}
 
     if(!empty($autor)){
-        $autor = htmlspecialchars($autor, ENT_COMPAT, 'UTF-8');    
+        $autor = preg_replace('/\D/', '', $autor);
 
-    }else{$erros["AUTOR"] = "Preencha o campo";}
-
-    if(!empty($autor)){
-        $autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_NUMBER_INT);
-        if( !filter_var($autor, FILTER_VALIDATE_INT) )
-            $erros["AUTOR"] = "Valor invalido no campo";
-
-        //validar se autor esta no BD
+        if(empty($autor)){
+            $erros["AUTOR"] = "Insira um valor valido no campo"; 
+        }else{
+            $inBD = $database->query("SELECT idAutor FROM BK_tbAutor WHERE idAutor = $autor");
+            $inBD->execute();
+    
+            if(!$idFromBD = $inBD->fetch(PDO::FETCH_ASSOC)){
+                $erros["AUTOR"] = "Valor invalido no campo" ;
+            }
+        }
 
     }else{$erros["AUTOR"] = "Preencha o campo";}
 
