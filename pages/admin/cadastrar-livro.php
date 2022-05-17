@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Livro</title>
-    <link rel="stylesheet" href="../assets/styles/css/admin-area1.css">
+    <link rel="stylesheet" href="../../assets/styles/css/admin-area1.css">
 </head>
 <body>
     <section class="cadastrar-livro">
@@ -28,7 +28,7 @@
             }
         ?>
         <div class="livro-inputs">
-            <form action="../php/validar-livro.php" method='POST' enctype='multipart/form-data' id='formulario'>
+            <form action="../../php/admin/validar-livro.php" method='POST' enctype='multipart/form-data' id='formulario'>
                 <div class="inputs">
                     <div class="left">
                         <div class='img-container'>
@@ -93,9 +93,9 @@
                             <div id='status'>
                                 <p>Ativo:</p>
                                 <label for="ativado">Sim</label>
-                                <input type="radio" name="situacao" id="ativado" value="1" checked>
+                                <input type="radio" name="situacao" id="ativado" value="s" checked>
                                 <label for="desativado">Não</label>
-                                <input type="radio" name="situacao" id="desativado" value="0">
+                                <input type="radio" name="situacao" id="desativado" value="n">
                             </div>
                         </div><!-- row -->
 
@@ -111,6 +111,6 @@
         </div><!-- autor-inputs -->
     </section><!-- cadastrar-livro -->
 
-    <script src="../js/admin.js"></script>
+    <script src="../../js/admin.js"></script>
 </body>
 </html>

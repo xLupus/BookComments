@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/styles/css/admin-area.css">
+    <title>Cadastrar Autor</title>
+    <link rel="stylesheet" href="../../assets/styles/css/admin-area.css">
 </head>
 <body>
     <section class='registrar-autor'> <!-- mudar registrar para cadastrar -->
@@ -28,12 +28,12 @@
             }
         ?>
         <div class="autor-inputs">
-            <form action="" method='POST' enctype='multipart/form-data'>
+            <form action="../../php/admin/validar-autor.php" method='POST' enctype='multipart/form-data'>
 
                 <div class="inputs">
                     <div class="left">
                         <div class='img-container' <?=!empty($erros['IMAGEM'])?'class="box-error"':""?>>
-                            <img id="img-preview" alt="" <?= isset($arquivoEnviado)? "src='$arquivoEnviado' width='100%' height='100%'" : "src='$foto' width='100%' height='100%'"; ?>>
+                            <img id="img-preview" src="" alt="" >
                         </div>
 
                         <label for="img-input">Adicionar foto</label>
@@ -47,12 +47,12 @@
                     </div><!-- right -->
                 </div><!-- inputs -->
 
-                <input type="submit" value="Cadastrar" name="btn_atualizar">
+                <input type="submit" value="Cadastrar" name="btn_cadastrar">
             </form>
 
         </div><!-- autor-inputs -->
     </section><!-- cadastrar-livro -->
     
-    <script src="../js/admin.js"></script>
+    <script src="../../js/admin.js"></script>
 </body>
 </html>

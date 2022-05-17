@@ -1,6 +1,6 @@
 <?php
 
-require_once 'includes/database-connection.php';
+require_once '../includes/database-connection.php';
 
 $titulo = '';
 $autor = '';
@@ -110,7 +110,7 @@ if(isset($_POST['btn_cadastrar']) ){
     
         if(empty($erros)){
             if( $tipo == 'image'){
-                $arquivoEnviado = '../assets/images/capa-livro/'.$_FILES['imagem']['name']; //.'.'.$ext
+                $arquivoEnviado = '../../assets/images/capa-livro/'.$_FILES['imagem']['name']; //.'.'.$ext
         
                 move_uploaded_file($_FILES['imagem']['tmp_name'], "$arquivoEnviado");
         
@@ -157,4 +157,4 @@ if(isset($_POST['btn_cadastrar']) ){
     }
 }
 
-include '../pages/cadastrar-livro.php';
+include '../../pages/admin/cadastrar-livro.php';

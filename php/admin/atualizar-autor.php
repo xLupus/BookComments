@@ -1,11 +1,47 @@
 <?php
 
-require_once 'includes/database-connection.php';
+include '../includes/database-connection.php';
 
-$nome = '';
-$sobre = '';
+if(isset($_GET['id'])){
 
-if(isset($_POST['btn_cadastrar'])){
+    $idAutor = preg_replace('/\D/', '',$_GET['id']);
+
+    if(!empty($idAutor)){
+        $stmt = $database->prepare("SELECT nome, sobre, foto FROM BK_tbAutor WHERE idAutor = :id");
+        $stmt->bindParam(':id', $idAutor);
+        $stmt->execute();
+    
+        if($autorContent = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $nome = $autorContent['nome'];
+            $sobre = $autorContent['sobre'];
+            $foto = $autorContent['foto'];
+        }else{
+            echo "
+                <script>
+                    alert('Autor invalido')
+                    window.history.go(-1)
+                </script>
+            ";
+        }
+    }else{
+        echo "
+            <script>
+                alert('ID invalido')
+                window.history.go(-1)
+            </script>
+        ";
+    }
+
+}else{
+    echo "
+    <script>
+        alert('preencha o campo id')
+        window.history.go(-1)
+    </script>
+";
+}
+
+if(isset($_POST['btn_atualizar'])){
     $nome = $_POST['nome'];
     $sobre = $_POST['sobre'];
     $arquivoEnviado = '';
@@ -29,22 +65,25 @@ if(isset($_POST['btn_cadastrar'])){
             $ext = $campos[1];
         
             if( $tipo == 'image'){
-                $arquivoEnviado = '../assets/images/foto-autor/'.$_FILES['imagem']['name']; //.'.'.$ext
+                $arquivoEnviado = '../../assets/images/foto-autor/'.$_FILES['imagem']['name']; //.'.'.$ext
                 move_uploaded_file($_FILES['imagem']['tmp_name'], "$arquivoEnviado");
 
             }else $erros["IMAGEM"]  = 'So é permitido o upload de';
         
-    }else $erros["IMAGEM"] = "Preencha o campo";
+    }else{
+        $arquivoEnviado = $autorContent['foto'];
+    }
 
-               
+
     if(empty($erros)){
         //try e catch?
-        $stmt = $database->prepare('INSERT INTO BK_tbAutor (nome, sobre, foto)
-                                    VALUES (:nome, :sobre, :diretorioFoto)');
+        $stmt = $database->prepare("UPDATE BK_tbAutor SET nome = :nome, sobre = :sobre, foto = :diretorioFoto
+                                    WHERE idAutor = :id");
 
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':sobre', $sobre);
         $stmt->bindParam(':diretorioFoto', $arquivoEnviado);
+        $stmt->bindParam(':id', $idAutor);
 
         if($stmt->execute()){
             $confirmation =  "<div class='validation-ok'>
@@ -56,6 +95,11 @@ if(isset($_POST['btn_cadastrar'])){
                               </div>";
         }
     }
+
 }
 
-include '../pages/cadastrar-autor.php';
+
+
+
+include '../../pages/admin/update-autor.php';
+

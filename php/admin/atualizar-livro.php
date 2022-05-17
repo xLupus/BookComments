@@ -1,6 +1,6 @@
 <?php
 
-include './includes/database-connection.php';
+include '../includes/database-connection.php';
 
 //Busca os autores para o datalist
 $stmt = $database->query("SELECT idAutor, nome FROM BK_tbAutor");
@@ -13,9 +13,9 @@ while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
 }
 //
 
-if(isset($_GET['livro'])){ /* pegar as informaçoes e exibir */
+if(isset($_GET['id'])){ /* pegar as informaçoes e exibir */
 
-    $idLivro = preg_replace('/\D/', '',$_GET['livro']);
+    $idLivro = preg_replace('/\D/', '',$_GET['id']);
 
     if(!empty($idLivro)){
         $stmt = $database->prepare("SELECT idAutor, BK_tbSinopse.sinopse, titulo, capa, lancamento, edicao, volume, numPag, situacao 
@@ -149,7 +149,7 @@ if(isset($_POST['btn_atualizar'])){
     
         if(empty($erros)){
             if( $tipo == 'image'){
-                $arquivoEnviado = '../assets/images/capa-livro/'.$_FILES['imagem']['name']; //.'.'.$ext
+                $arquivoEnviado = '../../assets/images/capa-livro/'.$_FILES['imagem']['name']; //.'.'.$ext
         
                 move_uploaded_file($_FILES['imagem']['tmp_name'], "$arquivoEnviado");
         
@@ -175,7 +175,7 @@ if(isset($_POST['btn_atualizar'])){
 
         $stmt = $database->prepare("UPDATE BK_tbLivro SET titulo = :titulo, idAutor = :autor, Lancamento = :lancamento, edicao = :edicao, 
                                             volume = :volume, numPag = :paginas, situacao = :situacao, capa = :capa, idSinopse = :idSinopse
-                                    WHERE idLivro = {$_GET['livro']} ");
+                                    WHERE idLivro = {$_GET['id']} ");
         
         
         $stmt->bindParam(':idSinopse',  $idLivro);
@@ -202,4 +202,4 @@ if(isset($_POST['btn_atualizar'])){
 
 }
 
-include '../pages/update-livro.php';
+include '../../pages/admin/update-livro.php';

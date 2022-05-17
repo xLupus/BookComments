@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Livro</title>
-    <link rel="stylesheet" href="../assets/styles/css/admin-area1.css">
+    <link rel="stylesheet" href="../../assets/styles/css/admin-area1.css">
 </head>
 <body>
     <section class="cadastrar-livro">
-        <h1>Cadastrar - Livro</h1>
+        <h1>Atualizar - Livro</h1>
         <hr>
         <?php
             if(isset($confirmation)){
@@ -93,9 +93,9 @@
                             <div id='status'>
                                 <p>Ativo:</p>
                                 <label for="ativado">Sim</label>
-                                <input type="radio" name="situacao" id="ativado" value="1" <?php echo $situacao == 1 ? 'checked': '';?> >
+                                <input type="radio" name="situacao" id="ativado" value="s" <?php echo $situacao == 's' ? 'checked': '';?> >
                                 <label for="desativado">Não</label>
-                                <input type="radio" name="situacao" id="desativado" value="0" <?php echo $situacao == 0 ? 'checked': '';?>>
+                                <input type="radio" name="situacao" id="desativado" value="n" <?php echo $situacao == 'n' ? 'checked': '';?>>
                             </div>
                         </div><!-- row -->
 
@@ -111,6 +111,6 @@
         </div><!-- autor-inputs -->
     </section><!-- cadastrar-livro -->
 
-    <script src="../js/admin.js"></script>
+    <script src="../../js/admin.js"></script>
 </body>
 </html>

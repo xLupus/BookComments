@@ -2,7 +2,7 @@
 include '../php/includes/database-connection.php';
 
 //Autor
-$stmt = $database->query("SELECT idAutor, nome FROM BK_tbAutor");
+$stmt = $database->query("SELECT idAutor, nome FROM BK_tbAutor ORDER BY nome");
 $stmt->execute();
 
 while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -12,7 +12,7 @@ while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
 }
 
 //Livro
-$stmt = $database->query("SELECT idLivro, titulo FROM BK_tbLivro");
+$stmt = $database->query("SELECT idLivro, titulo FROM BK_tbLivro ORDER BY titulo");
 $stmt->execute();
 
 while($livros = $stmt->fetch(PDO::FETCH_ASSOC)){
