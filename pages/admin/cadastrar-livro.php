@@ -28,15 +28,16 @@
             }
         ?>
         <div class="livro-inputs">
-            <form action="../../php/admin/validar-livro.php" method='POST' enctype='multipart/form-data' id='formulario'>
+            <form action="../../php/admin/validar-livro.php" method='POST' enctype='multipart/form-data' id="formulario">
+
                 <div class="inputs">
                     <div class="left">
                         <div class='img-container'>
-                            <img id="img-preview" src="" >
+                            <img id="img-preview" <?= isset($arquivoEnviado)? "src='$arquivoEnviado' width='100%' height='100%'" : ""; ?>>
                         </div>
 
-                        <label for="img-input" <?=!empty($erros['IMAGEM'])?"class='box-error'": ''?>>Adicionar foto</label>
-                        <input type="file" name="imagem" id="img-input" >
+                        <label for="img-input" <?=!empty($erros['IMAGEM'])?"class='box-error'":''?>>Adicionar foto</label>
+                        <input type="file" name="imagem" id="img-input">
                     </div><!-- left -->
 
                     <div class="right">

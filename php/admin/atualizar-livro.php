@@ -167,9 +167,6 @@ if(isset($_POST['btn_atualizar'])){
 
         $stmt->bindParam(':sinopse',    $sinopse);
         $stmt->bindParam(':idSinopse',  $idLivro);
-
-        var_dump($sinopse);
-        var_dump($idLivro);
         $stmt->execute();
 
 
@@ -198,8 +195,6 @@ if(isset($_POST['btn_atualizar'])){
                               </div>";
         }
     }
-
-
 }
 
 include '../../pages/admin/update-livro.php';
