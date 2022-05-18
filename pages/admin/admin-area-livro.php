@@ -13,9 +13,11 @@
     <h1>Livros</h1>
     <form method="GET">
 
-        <label>Buscar</label>
-        <input type="text" name="busca" value="<?=$pesquisar ?? ''?>">
+        <label>Livro</label>
+        <input type="text" name="busca" value="<?=$pesquisarLivro ?? ''?>">
 
+        <label>Autor</label>
+        <input type="text" name="buscaAutor">
 
         <label>Status</label>
         <select name="status">
