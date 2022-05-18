@@ -1,6 +1,6 @@
 <?php
 
-require_once 'includes/database-connection.php';
+require_once '../includes/database-connection.php';
 
 $titulo = '';
 $autor = '';
@@ -110,8 +110,7 @@ if(isset($_POST['btn_cadastrar']) ){
     
         if(empty($erros)){
             if( $tipo == 'image'){
-                $arquivoEnviado = '../assets/images/capa-livro/'.$_FILES['imagem']['name']; //.'.'.$ext
-        
+                $arquivoEnviado = '../../assets/images/capa-livro/'.$_FILES['imagem']['name']; //.'.'.$ext
                 move_uploaded_file($_FILES['imagem']['tmp_name'], "$arquivoEnviado");
         
             }else { $erros["IMAGEM"]  = 'So é permitido o upload de';} 
@@ -124,12 +123,11 @@ if(isset($_POST['btn_cadastrar']) ){
     if(empty($erros)){
 
         $tbSinopse = $database->prepare('INSERT INTO BK_tbSinopse (sinopse) VALUES (:sinopse)');
-        $tbSinopse->bindParam(':sinopse',  $sinopse);
+        $tbSinopse->bindParam(':sinopse', $sinopse);
 
         if($tbSinopse->execute()){
             $idSinopse = $database->lastInsertId();
         }else{$erros['SINOPSE'] = 'Erro ao adicionar a ';}
-
 
         $stmt = $database->prepare('INSERT INTO BK_tbLivro (idSinopse, idAutor, titulo, capa, Lancamento, edicao, volume, numPag, situacao)
                                     VALUES (:idSinopse, :autor, :titulo, :capa, :lancamento, :edicao, :volume, :paginas, :situacao)');
@@ -157,4 +155,4 @@ if(isset($_POST['btn_cadastrar']) ){
     }
 }
 
-include '../pages/cadastrar-livro.php';
+include '../../pages/admin/cadastrar-livro.php';
