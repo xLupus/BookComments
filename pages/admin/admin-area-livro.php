@@ -17,7 +17,7 @@
         <input type="text" name="busca" value="<?=$pesquisarLivro ?? ''?>">
 
         <label>Autor</label>
-        <input type="text" name="buscaAutor">
+        <input type="text" name="buscaAutor" value="<?=$pesquisarAutor ?? ''?>">
 
         <label>Status</label>
         <select name="status">
