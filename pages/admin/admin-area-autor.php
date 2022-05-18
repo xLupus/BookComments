@@ -13,7 +13,7 @@
 
     <form method="GET">
         <label>Buscar</label>
-        <input type="text" name="busca" value="<?=$pesquisar ?? ''?>">
+        <input type="text" name="busca" autofocus value="<?=$pesquisar ?? ''?>">
 
         <button type="submit">Filtrar</button>
     </form>

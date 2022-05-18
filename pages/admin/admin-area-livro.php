@@ -14,7 +14,7 @@
     <form method="GET">
 
         <label>Livro</label>
-        <input type="text" name="busca" value="<?=$pesquisarLivro ?? ''?>">
+        <input type="text" name="busca" autofocus value="<?=$pesquisarLivro ?? ''?>">
 
         <label>Autor</label>
         <input type="text" name="buscaAutor" value="<?=$pesquisarAutor ?? ''?>">
