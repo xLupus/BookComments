@@ -20,7 +20,30 @@
 
     <a href="../../php/admin/validar-autor.php"><button>+ Autor</button></a>
 
-    <?=getAutor($where,$order);?>
+    <?php
+        echo "<form method='GET'>
+        <table border='1' class='table'>
+            <tr>
+                <td>ID</td> <td>Autor</td> <td>Ações</td>
+            </tr>
+        ";
+    
+        while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
+    
+            echo "<tr>
+                    <td>{$autores['idAutor']}</td>
+    
+                    <td>{$autores['nome']}</td>
+    
+                    <td><button type='submit' formaction='../admin/atualizar-autor.php' name='id' value='{$autores['idAutor']}'>Editar</button></td>
+                </tr>
+            ";
+        }
+    
+        echo "</table>
+            </form>
+        ";
+    ?>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
