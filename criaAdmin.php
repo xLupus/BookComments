@@ -1,6 +1,6 @@
 <?php
 
-require 'database-connection.php';
+require './php/includes/database-connection.php';
 
 //Admin
 $nome  = 'admin';
