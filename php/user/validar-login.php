@@ -1,7 +1,7 @@
 <?php
 
-require_once 'includes/database-connection.php';
-include '../php/includes/applica-control.php';
+require_once '../includes/database-connection.php';
+include '../includes/applica-control.php';
 
 $email = '';
 $senha = '';
@@ -35,11 +35,11 @@ if(isset($_POST['btn_entrar'])){
                 $_SESSION['id'] = $c['idUsuario'];
                 $_SESSION['permissao'] = $c['permissao'];
         
-                header('location: ../index.php');
+                header('location: ../../index.php');
     
             }else{$erros['incorretos'] = 'Email ou senha';}
         }else{$erros['incorretos'] = 'Email ou senha';}
     }
 }
 
-include '../pages/login.php';
+include '../../pages/user/login.php';

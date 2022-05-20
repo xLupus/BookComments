@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../assets/styles/css/login-cadastro.css">
+    <link rel="stylesheet" href="../../assets/styles/css/login-cadastro.css">
 </head>
 <body>
     <div class="center">
         <div class="left-img-login"></div><!-- left -->
 
         <div class="right">
-            <img src="../assets/images/Logo.svg" alt="BookComments">
+            <img src="../../assets/images/Logo.svg" alt="BookComments">
             
             <div class="right-content">
                 <p id="boas-vindas">Bem-vindo de volta ao <u>Book Comments</u>!</p>
                 <h1>Acesse sua conta</h1>
 
-                <form action="../php/validar-login.php" method="POST">
+                <form action="../../php/user/validar-login.php" method="POST">
                     
                     <div class="input-container">
                         <label for="email">Email</label>
@@ -50,7 +50,7 @@
                 </form><!-- from -->
 
                 
-                <a href="../php/validar-cadastro.php"><button id="link-btn">Registrar-se</button></a>
+                <a href="../../php/user/validar-cadastro.php"><button id="link-btn">Registrar-se</button></a>
             </div><!-- right-content -->
         </div><!-- right -->
     </div><!-- center -->

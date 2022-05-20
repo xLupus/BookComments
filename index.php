@@ -17,8 +17,8 @@
         <nav class="menu">
             <ul class="menu__list">
                 <li class="menu__links"><a href="index.php" class="menu__link"><img src="assets/images/logo.png" alt="Logo" class="header__img"></a></li>
-                <li class="menu__links"><a href="php/validar-livro.php" class="menu__link">Livros</a></li>
-                <li class="menu__links"><a href="php/validar-autor.php" class="menu__link">Autores</a></li>
+                <li class="menu__links"><a href="php/admin/admin-area-livro.php" class="menu__link">Livros</a></li>
+                <li class="menu__links"><a href="php/admin/admin-area-autor.php" class="menu__link">Autores</a></li>
                 <li class="menu__links">
                     <div class="search">
                         <form action="#"class="form">

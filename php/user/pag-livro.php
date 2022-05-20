@@ -1,6 +1,6 @@
 <?php
 
-include_once './includes/database-connection.php';
+include_once '../includes/database-connection.php';
 
 $id = preg_replace("/\D/", '', $_GET['idLivro']);
 
@@ -24,4 +24,4 @@ $volume = $livro['volume'];
 $paginas = $livro['numPag'];
 $sinopse = $livro['sinopse'];
 
-include '../pages/pag-livro.php';
+include '../../pages/user/pag-livro.php';

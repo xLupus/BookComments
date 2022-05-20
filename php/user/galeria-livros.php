@@ -1,6 +1,6 @@
 <?php
 
-include_once './includes/database-connection.php';
+include_once '../includes/database-connection.php';
 
 $stmt = $database->query("SELECT idLivro, titulo, capa
                           FROM BK_tbLivro
@@ -8,4 +8,4 @@ $stmt = $database->query("SELECT idLivro, titulo, capa
 
 $stmt->execute();
 
-include '../pages/galeria-livros.php';
+include '../../pages/user/galeria-livros.php';

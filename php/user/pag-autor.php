@@ -1,6 +1,6 @@
 <?php
 
-include_once './includes/database-connection.php';
+include_once '../includes/database-connection.php';
 
 $id = preg_replace("/\D/", '', $_GET['idAutor']);
 
@@ -18,4 +18,4 @@ $sobreAutor = $autor['sobre'];
 $fotoAutor = $autor['foto'];
 
 
-include '../pages/pag-autor.php';
+include '../../pages/user/pag-autor.php';

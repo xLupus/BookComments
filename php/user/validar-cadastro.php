@@ -1,7 +1,7 @@
 <?php
 
-include '../php/includes/applica-control.php';
-require_once 'includes/database-connection.php';
+include '../includes/applica-control.php';
+require_once '../includes/database-connection.php';
 
 $nome  = '' ;
 $email = '';
@@ -55,11 +55,11 @@ if(isset($_POST['btn_cadastrar'])){
                 $_SESSION['id'] = $idUser;
                 $_SESSION['permissao'] = 'u';
                 
-                header('location: ../index.php');
+                header('location: ../../index.php');
 
             }
         }else{$erros["EMAIL"] = "Valor do campo ja cadastrado";}
     }
 }
 
-include '../pages/cadastrar.php';
+include '../../pages/user/cadastrar.php';
