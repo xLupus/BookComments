@@ -80,14 +80,10 @@ header{
     }
 }
 
-
-
-
 .dropdown {
     button{
         background-color: $btn-brown;
-        border-radius: 50%;
-        height: 80px;
+        height: 50px;
         width: 80px;
     }
     button:hover{

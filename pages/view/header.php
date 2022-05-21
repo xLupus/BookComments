@@ -26,8 +26,8 @@
                 </ul>
             </nav>
 
-            <form action="">
-                <select name="" id="">
+            <form action="../../php/search-redirect.php" method="GET">
+                <select name="galeria" id="">
                     <option value="Livros">Livro</option>
                     <option value="Autores">Autor</option>
                 </select>
@@ -45,7 +45,7 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="../../php/admin/admin-area-livro.php">Livros</a></li>
                     <li><a class="dropdown-item" href="../../php/admin/admin-area-autor.php">Autores</a></li>
-                    <li><a class="dropdown-item" href="#">Sair</a></li>
+                    <li><a class="dropdown-item" href="../../php/includes/logout.php">Sair</a></li>
                 </ul>
             </div><!-- dropdown -->
 

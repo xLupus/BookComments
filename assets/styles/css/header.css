@@ -123,8 +123,7 @@ header .header-container form input[type=submit] {
 
 .dropdown button {
   background-color: #513427;
-  border-radius: 50%;
-  height: 80px;
+  height: 50px;
   width: 80px;
 }
 

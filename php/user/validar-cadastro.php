@@ -62,6 +62,4 @@ if(isset($_POST['btn_cadastrar'])){
     }
 }
 
-include '../../pages/view/header.php';
 include '../../pages/user/cadastrar.php';
-include '../../pages/view/footer.php';

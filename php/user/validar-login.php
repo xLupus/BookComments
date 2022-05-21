@@ -42,6 +42,4 @@ if(isset($_POST['btn_entrar'])){
     }
 }
 
-include '../../pages/view/header.php';
 include '../../pages/user/login.php';
-include '../../pages/view/footer.php';

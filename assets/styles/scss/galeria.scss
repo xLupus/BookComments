@@ -3,37 +3,86 @@
 .container-1280{
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
     padding: 30px 60px;
 
-    .autor-link{
+
+
+    .filter-autor{
         display: flex;
-        flex-direction: column;
-        text-align: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        width: 100%;
 
-        img{
-            height: 275px;
-            width: 205px;
-            border-radius: 30px;
-        }
+       select{
+            height: 50px;
+            appearance: none;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            background-color: $btn-brown;
+            outline: none;
+       }
+    }
+    .galeria-autor{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
 
-        span{
-            margin-top: 5px;
+        .autor-link{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+    
+            img{
+                height: 275px;
+                width: 205px;
+                border-radius: 30px;
+            }
+    
+            span{
+                margin-top: 5px;
+            }
         }
     }
+    
 
-    .livro-link{
+    .filter-book{
         display: flex;
-        flex-direction: column;
-        text-align: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        width: 100%;
 
-        img{
-            height: 275px;
-            width: 205px;
-        }
+        
+       select{
+            height: 50px;
+            appearance: none;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            background-color: $btn-brown;
+            outline: none;
+       }
+    }
 
-        span{
-            margin-top: 5px;
-        }
-    } 
+    .galeria-livro{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        .livro-link{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+    
+            img{
+                height: 275px;
+                width: 205px;
+            }
+    
+            span{
+                margin-top: 5px;
+            }
+        } 
+    }
+    
 }

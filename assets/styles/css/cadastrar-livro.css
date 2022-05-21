@@ -52,7 +52,7 @@
 }
 
 .cadastrar-livro {
-  margin: 60px auto 0px auto;
+  margin: 60px auto;
   max-width: 1280px;
 }
 
@@ -109,6 +109,8 @@
 
 .cadastrar-livro .livro-inputs form .inputs .right .row {
   display: flex;
+  margin-left: 1px;
+  align-items: center;
 }
 
 .cadastrar-livro .livro-inputs form .inputs .right .row input[type=text] {
@@ -148,14 +150,20 @@
 
 .cadastrar-livro .livro-inputs form .inputs .right #status {
   display: flex;
-  height: 50px;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.cadastrar-livro .livro-inputs form .inputs .right #status label {
+  margin: 0;
+  margin-right: 8px;
 }
 
 .cadastrar-livro .livro-inputs form .inputs .right #status p {
   font-size: 18px;
   font-weight: bold;
   margin-right: 15px;
+  margin-bottom: 0;
 }
 
 .cadastrar-livro .livro-inputs form .inputs .right #status input[type=radio] {

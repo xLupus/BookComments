@@ -11,16 +11,30 @@
 <body>
     
     <div class="container-1280">
-        <?php
-            while($autor = $stmt->fetch(PDO::FETCH_ASSOC)){
-                echo "
-                    <div class='autor-link'>
-                        <a href='pag-autor.php?idAutor={$autor['idAutor']}'><img src='{$autor['foto']}' alt='{$autor['nome']}' width='300px'></a>
-                        <span>{$autor['nome']}</span>
-                    </div>
-                ";
-            }
-        ?>
+        <div class="filter-autor">
+            <h1>Autores</h1>
+            <select name="ordem" >
+                <option value="">Filtro</option>
+                <option value="">A-z</option>    
+                <option value="">Z-a</option>
+                <option value="">Mais Recentes</option>
+                <option value="">Menos Recentes</option>
+            <select>
+        </div>
+
+        <div class="galeria-autor">
+            <?php
+                while($autor = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    echo "
+                        <div class='autor-link'>
+                            <a href='pag-autor.php?idAutor={$autor['idAutor']}'><img src='{$autor['foto']}' alt='{$autor['nome']}' width='300px'></a>
+                            <span>{$autor['nome']}</span>
+                        </div>
+                    ";
+                }
+            ?>
+        </div>
+
     </div>
 
 </body>

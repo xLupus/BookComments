@@ -15,6 +15,7 @@ $condicoes = [
 ];
 
 $condicoes = array_filter($condicoes);
+
 $where = empty($condicoes) ? '': 'WHERE '. implode(' AND ', $condicoes); 
 
 
