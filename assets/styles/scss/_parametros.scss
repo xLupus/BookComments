@@ -62,3 +62,28 @@ $bodyColor: #E8EAED;
 .box-error{
     border: 3px solid rgb(202, 8, 8) !important;
 }
+
+.container-1280{
+    margin: 60px auto;
+    max-width: 1280px;
+    background-color: $containerColor;
+    padding: 20px;
+    @include boxShadow;
+    
+}
+.container-1100{
+    margin: 60px auto;
+    max-width: 1100px;
+    background-color: $containerColor;
+    @include boxShadow;
+    
+}
+
+.container-900{
+    margin: 60px auto;
+    max-width: 900px;
+    background-color: $containerColor;
+    padding: 20px;
+    @include boxShadow;
+    
+}

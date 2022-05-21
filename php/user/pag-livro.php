@@ -24,4 +24,6 @@ $volume = $livro['volume'];
 $paginas = $livro['numPag'];
 $sinopse = $livro['sinopse'];
 
+include '../../pages/view/header.php';
 include '../../pages/user/pag-livro.php';
+include '../../pages/view/footer.php';

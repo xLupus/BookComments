@@ -16,5 +16,6 @@ FROM BK_tbAutor
 $where $order");
 
 $stmt->execute();
-
+include '../../pages/view/header.php';
 include '../../pages/admin/admin-area-autor.php';
+include '../../pages/view/footer.php';

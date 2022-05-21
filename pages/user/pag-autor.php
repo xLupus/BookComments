@@ -5,14 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autor</title>
+    <link rel="stylesheet" href="../../assets/styles/css/pag-autor.css">
 </head>
 <body>
-    
-    <img src="<?=$fotoAutor?>" alt="" width="300px">
+    <div class="container-1280">
 
-    <p><?=$nomeAutor?></p>
+        <div class="left">
+            <img src="<?=$fotoAutor?>" alt="" width="300px">
+        </div>
 
-    <p><?=$sobreAutor?></p>
+        <div class="right">
+            <p class="nome"><?=$nomeAutor?></p>
+
+            <div class="sobre"><?=$sobreAutor?></div>
+        </div>
+
+    </div><!-- container-1280 -->
+
 
 </body>
 </html>

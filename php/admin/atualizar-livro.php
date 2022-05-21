@@ -196,5 +196,6 @@ if(isset($_POST['btn_atualizar'])){
         }
     }
 }
-
+include '../../pages/view/header.php';
 include '../../pages/admin/update-livro.php';
+include '../../pages/view/footer.php';

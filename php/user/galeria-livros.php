@@ -7,5 +7,6 @@ $stmt = $database->query("SELECT idLivro, titulo, capa
                           WHERE situacao = 's' ");
 
 $stmt->execute();
-
+include '../../pages/view/header.php';
 include '../../pages/user/galeria-livros.php';
+include '../../pages/view/footer.php';

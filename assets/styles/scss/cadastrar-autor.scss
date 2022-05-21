@@ -1,19 +1,18 @@
 @import "parametros";
 
-.cadastrar-livro{
+.registrar-autor{
     margin: 60px auto 0px auto;
     max-width: 1280px;
 
-    h1{text-align: center;}
+    h1{text-align: center; font-size: 2rem;}
     hr{margin: 10px 0 40px 0;}
 
-    .livro-inputs{
-
+    .autor-inputs{
         form{
+
             .inputs{
                 display: flex;
                 justify-content: center;
-                align-items: center;
                 background-color: $containerColor;
                 padding: 55px 0;
                 @include boxShadow;
@@ -48,58 +47,14 @@
                     flex-direction: column;
                     width: 60%;
 
-                    .row{
-                        display: flex;
-
-                        input[type=text]{
-                            padding: 0 3px;
-                            width: 80px;
-                            height: 50px;
-                            font-size: 16px;
-                            text-align: center;
-                            outline: none;
-                        }
-                    }
-                    label{
-                        font-size: 18px;
-                        color: #616161;
-                        font-weight: bold;
-                        margin-right: 10px;
-                    }
-                    .campo-input{
-                        margin-bottom: 20px;
-                        margin-right: 20px;
-                    }
-
-                    input[type=text],input[list=autores]{
-                        width: 350px;
-                        height: 50px;
+                    input[type=text]{
+                        width: 100%;
+                        height: 60px;
+                        margin-bottom: 10px;
                         padding: 15px;
                         font-weight: 400;
-                        font-size: 16px;
+                        font-size: 24px;
                         outline: none;
-                    }
-                    
-
-
-                    #sinopse-label{
-                        color: #616161;
-                        font-weight: bold;
-                    }
-
-                    #status{
-                        display: flex;
-                        height: 50px;
-                        align-items: center;
-
-                        p{
-                            font-size: 18px;
-                            font-weight: bold;
-                            margin-right: 15px;
-                        }
-                        input[type=radio]{
-                            margin-right: 20px;
-                        }
                     }
                     textarea{
                         width: 100%;

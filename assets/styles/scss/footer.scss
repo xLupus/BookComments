@@ -1,0 +1,19 @@
+@import 'parametros';
+
+footer{
+    background-color: $btn-brown;
+    height: 170px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .footer-container{
+
+        .rodape{
+            font-size: 28px;
+            color: $btn_yellow;
+            text-align: center;
+        }
+    }
+}

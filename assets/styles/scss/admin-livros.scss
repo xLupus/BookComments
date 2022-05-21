@@ -1,0 +1,109 @@
+@import 'parametros';
+
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+
+    .input-search{
+        label{
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        input[type=text]{
+            height: 50px;
+            width: 300px;
+            padding: 10px;
+            outline: none;
+        
+        }
+    }
+    
+    select{
+        height: 50px;
+        appearance: none;
+        width: 120px;
+        text-align: center;
+    }
+    button[type=submit]{
+       height: 50px;
+       width: 130px;
+       background-color: $btn-brown;
+       color: white;
+       margin-left: 60px;
+       cursor: pointer;
+
+    }
+
+    .input-search:nth-child(2){
+        margin: 0 30px;
+    }
+}
+a button{
+    height: 50px;
+    width: 130px;
+    background-color: $btn-brown;
+    color: white;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.table-livro{
+    width: 100%;
+    background-color: white;
+    
+    tr{height: 50px;}
+
+    th:nth-child(1),
+    td:nth-child(1),
+    th:nth-child(5),
+    td:nth-child(5),
+    th:nth-child(6),
+    td:nth-child(6){
+        width: 8%;
+        text-align: center;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2){
+        width: 8%;
+        text-align: center;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3){
+        width: 30%;        
+        padding-left: 10px;
+    }
+
+    th:nth-child(4),
+    td:nth-child(4){
+        width: 30%;        
+        padding-left: 10px;
+    }
+
+}
+
+.table-autor{
+    width: 100%;
+    background-color: white;
+    margin: 0 auto;
+    
+    tr{height: 50px;}
+
+    th:nth-child(1),
+    td:nth-child(1),
+    th:nth-child(3),
+    td:nth-child(3){
+        width:8%;
+        text-align: center;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2){
+        width: 30%;        
+        padding-left: 10px;
+    }
+
+}

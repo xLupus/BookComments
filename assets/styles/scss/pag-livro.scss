@@ -1,0 +1,49 @@
+@import 'parametros';
+
+.container-1100{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 60px;
+    align-items: center;
+
+    .top{
+        width: 900px;
+        display: flex;
+
+        .left{    
+            img{
+                height: 360px;
+                width: 260px;
+            }
+        }
+
+        .right{
+            margin-left: 40px;
+
+            .book-element{
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+
+            .book-info{
+                font-weight: normal;
+                margin-right: 30px;
+            }
+        }
+
+    }
+
+    .bottom{
+        margin-top: 40px;
+        width: 900px;
+
+        .sinopse{
+            height: 320px;
+            overflow-y: scroll;
+            padding: 20px 0;
+            border-top: 1px solid #8a8a8a;
+            font-size: 1rem;
+        }
+    }
+}

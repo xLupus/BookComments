@@ -18,15 +18,16 @@ $condicoes = array_filter($condicoes);
 $where = empty($condicoes) ? '': 'WHERE '. implode(' AND ', $condicoes); 
 
 
-$stmt = $database->query("SELECT idLivro, BK_tbAutor.nome, titulo, 
+$stmt = $database->query("SELECT idLivro, BK_tbAutor.nome, titulo, capa, situacao =
                           CASE WHEN situacao = 's' THEN 'Ativo' 
                           WHEN situacao = 'n' THEN 'Inativo'
-                          END AS situacao
+                          END 
                           FROM BK_tbLivro
                           INNER JOIN BK_tbAutor 
                           ON BK_tbAutor.idAutor = BK_tbLivro.idAutor
                           $where ORDER BY titulo");
 
 $stmt->execute();
-
+include '../../pages/view/header.php';
 include '../../pages/admin/admin-area-livro.php';
+include '../../pages/view/footer.php';

@@ -99,7 +99,7 @@ if(isset($_POST['btn_atualizar'])){
 }
 
 
-
-
+include '../../pages/view/header.php';
 include '../../pages/admin/update-autor.php';
+include '../../pages/view/footer.php';
 

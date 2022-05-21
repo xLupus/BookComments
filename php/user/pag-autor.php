@@ -18,4 +18,6 @@ $sobreAutor = $autor['sobre'];
 $fotoAutor = $autor['foto'];
 
 
+include '../../pages/view/header.php';
 include '../../pages/user/pag-autor.php';
+include '../../pages/view/footer.php';

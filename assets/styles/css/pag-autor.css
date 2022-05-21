@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.validation-error {
+  width: 100%;
+  background-color: #f3b2b2;
+  color: #961605;
+  font-weight: bold;
+  padding: 20px 10px;
+}
+
+.validation-error li {
+  list-style: none;
+}
+
+.validation-ok {
+  width: 100%;
+  background-color: #d5f3b2;
+  color: #05961d;
+  font-weight: bold;
+  padding: 20px 10px;
+}
+
+.box-error {
+  border: 3px solid #ca0808 !important;
+}
+
+.container-1280 {
+  margin: 60px auto;
+  max-width: 1280px;
+  background-color: #F4F4F4;
+  padding: 20px;
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25);
+}
+
+.container-1100 {
+  margin: 60px auto;
+  max-width: 1100px;
+  background-color: #F4F4F4;
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25);
+}
+
+.container-900 {
+  margin: 60px auto;
+  max-width: 900px;
+  background-color: #F4F4F4;
+  padding: 20px;
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25);
+}
+
+.container-1280 {
+  display: flex;
+  padding: 50px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-1280 .left {
+  margin-right: 60px;
+}
+
+.container-1280 .left img {
+  height: 380px;
+  width: 270px;
+}
+
+.container-1280 .right {
+  width: 750px;
+}
+
+.container-1280 .right .nome {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 0;
+  border-bottom: 1px solid #8a8a8a;
+}
+
+.container-1280 .right .sobre {
+  font-size: 1rem;
+  width: 100%;
+  height: 320px;
+  border-bottom: 1px solid #8a8a8a;
+  overflow-y: scroll;
+}

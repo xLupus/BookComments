@@ -1,0 +1,96 @@
+@import 'parametros';
+
+header{
+    @include boxShadow;
+    width: 100%;
+
+
+    .header-container{
+        display: flex;
+        max-width: 1280px;
+        align-items: center;
+        justify-content: space-between;
+        height: 90px;
+        margin: 0 auto;
+
+        nav {
+
+            display: flex;
+
+            ul{
+                width: 170px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                top: 8px;
+
+                li{
+                    list-style: none;
+                    
+                    a{
+                        color: $btn-brown;
+                        font-size: 16px;
+                        font-weight: bold;
+                        text-decoration: none;
+                        padding: 20px;
+
+                    }
+
+                }
+
+                li + li{
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        form{
+
+            select{
+                height: 50px;
+                width: 80px;
+                margin-right: -5px;
+                background-color: $btn-brown;
+                color: white;
+                appearance: none;
+                text-align: center;
+            }
+
+
+
+            input[type=search]{
+                height: 50px;
+                width: 400px;
+                outline: none;
+                padding: 10px;
+                border: 1px solid black;
+            }
+            input[type=submit]{
+                height: 50px;
+                width: 100px;
+                background-color: $btn-brown;
+                color: white;
+                margin-left: -5px;
+            }
+        }
+
+
+    }
+}
+
+
+
+
+.dropdown {
+    button{
+        background-color: $btn-brown;
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+    }
+    button:hover{
+        background-color: $btn_brown;
+    }
+}
