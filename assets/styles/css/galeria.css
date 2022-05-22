@@ -57,21 +57,62 @@
   padding: 30px 60px;
 }
 
-.container-1280 .filter-autor {
+.container-1280 .titulo-livro-destaque {
+  margin-bottom: 30px;
+}
+
+.container-1280 .titulo-autor-destaque {
+  margin: 30px 0;
+}
+
+.container-1280 .filter-row {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-  width: 100%;
 }
 
-.container-1280 .filter-autor select {
-  height: 50px;
-  appearance: none;
-  text-align: center;
-  padding: 10px;
-  color: white;
+.container-1280 .filter-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.container-1280 .filter-dropdown .dropbtn {
+  width: 160px;
   background-color: #513427;
-  outline: none;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.container-1280 .filter-dropdown .filter-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.container-1280 .filter-dropdown .filter-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.container-1280 .filter-dropdown .filter-dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.container-1280 .filter-dropdown:hover .filter-dropdown-content {
+  display: block;
+}
+
+.container-1280 .filter-dropdown:hover .dropbtn {
+  background-color: #513427;
 }
 
 .container-1280 .galeria-autor {
@@ -94,23 +135,6 @@
 
 .container-1280 .galeria-autor .autor-link span {
   margin-top: 5px;
-}
-
-.container-1280 .filter-book {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.container-1280 .filter-book select {
-  height: 50px;
-  appearance: none;
-  text-align: center;
-  padding: 10px;
-  color: white;
-  background-color: #513427;
-  outline: none;
 }
 
 .container-1280 .galeria-livro {

@@ -57,9 +57,14 @@
 }
 
 .banner .img-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 500px;
   margin: 0 auto;
   background-image: url(../../images/banner-home.png);
   background-repeat: no-repeat;
   background-position: center;
+  color: white;
 }

@@ -2,37 +2,33 @@
 
 include_once '../includes/database-connection.php';
 
+$order = '';
 
-$total = $database->query("SELECT total = count(*) FROM BK_tbLivro WHERE situacao = 's'");
-$total->execute();
-/*
-PAGINACAO
-$resultados = $total->fetch(PDO::FETCH_ASSOC);
-$resultados = $resultados;
-
-$limitPerPagina = 5;
-$pages = $resultados > 0 ? ceil($resultados / $limitPerPagina) : 1;
-
-var_dump($resultados);
-
-$currentPage = $_GET['pagina'] ?? null;
-
-if(is_numeric($currentPage) and $currentPage > 0){
-    $currentPage = 1;
+if(isset($_GET['ordem'])){
+    switch($_GET['ordem']){
+        case 'Az':
+            $order = 'ORDER BY titulo';
+        break;
+    
+        case 'Za':
+            $order = 'ORDER BY titulo DESC';
+        break;
+    
+        case 'MaisNovos':
+            $order = 'ORDER BY idLivro DESC';
+        break;
+    
+        case 'MaisAntigos':
+            $order = 'ORDER BY idLivro';
+        break;
+    
+        default:
+            $order = null;
+        break;
+    }
 }
 
-if($currentPage <= $pages){
-    $currentPage = $currentPage;
 
-}else{
-    $currentPage = $pages;
-}
-
-
-
-
-//var_dump($resultados);
-*/
 
 $pesquisa = isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa'], ENT_COMPAT, 'UTF-8') : "";
 
@@ -45,7 +41,7 @@ $where = empty($condicoes) ? '': 'WHERE '. implode(' AND ', $condicoes);
 
 $stmt = $database->query("SELECT idLivro, titulo, capa
                           FROM BK_tbLivro
-                          $where ");
+                          $where $order");
 
 $stmt->execute();
 

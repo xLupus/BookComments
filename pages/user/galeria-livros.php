@@ -10,19 +10,20 @@
 <body>
 
     <div class="container-1280">
-        <div class="filter-book">
+        <div class="filter-row">
             <h1>Livros</h1>
 
-            <select name="ordem" >
-                <option value="">Filtro</option>
-                <option value="">A-z</option>    
-                <option value="">Z-a</option>
-                <option value="">Mais Recentes</option>
-                <option value="">Menos Recentes</option>
-            <select>
-
-
-        </div><!-- filter-book -->
+            <div class="filter-dropdown">
+                <button class="dropbtn">FILTRO</button>
+            
+                <div class="filter-dropdown-content">
+                    <a href="?ordem=Az">Ordem (A-z)</a>
+                    <a href="?ordem=Za">Ordem (Z-a)</a>
+                    <a href="?ordem=MaisNovos">Mais Recentes</a>
+                    <a href="?ordem=MaisAntigos">Menos Recentes</a>
+                </div><!-- filter-dropdown-content -->
+            </div><!-- filter-dropdown -->
+        </div><!-- filter-row -->
 
         <div class="galeria-livro">
             <?php

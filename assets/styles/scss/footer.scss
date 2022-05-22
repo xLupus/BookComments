@@ -2,7 +2,7 @@
 
 footer{
     background-color: $btn-brown;
-    height: 170px;
+    height: 120px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@ footer{
     .footer-container{
 
         .rodape{
-            font-size: 28px;
+            font-size: 1.5rem;
             color: $btn_yellow;
             text-align: center;
         }
