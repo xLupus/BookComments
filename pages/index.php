@@ -10,39 +10,30 @@
 
     <div class="container-1280">
         <div class="livros-destaque">
-            <h3 class="titulo-livro-destaque">LIVROS DA SEMANA</h3>
+            <h3 class="titulo-livro-destaque">Livros da Semana</h3>
 
             <div class="galeria-livro">
-                <?php
-                    while($livros = $livrosDestaque->fetch(PDO::FETCH_ASSOC)){
-                        echo "
-                            <div class='livro-link'>
-                                <a href='php/user/pag-livro.php?idLivro={$livros['idLivro']}'>
-                                    <img src='{$livros['capa']}' alt='{$livros['titulo']}' width='300px'>
-                                </a>
-                                <span>{$livros['titulo']}</span>
-                            </div>
-                        ";
-                    }
-                ?>
-
+                <?php while($livros = $livrosDestaque->fetch(PDO::FETCH_ASSOC)){ ?>
+                        <div class='livro-link'>
+                            <a href='php/user/pag-livro.php?idLivro=<?=$livros['idLivro'];?>'>
+                                <img src='<?=$livros['capa']?>' alt='<?=$livros['titulo']?>' width='300px'>
+                            </a>
+                            <span><?=$livros['titulo']?></span>
+                        </div>
+                 <?php }?>
             </div><!-- galeria-livro -->
         </div><!-- livros-destaque -->
 
         <div class="autores-destaque">
-            <h3 class="titulo-autor-destaque">AUTORES DA SEMANA</h3>
+            <h3 class="titulo-autor-destaque">Autores da Semana</h3>
 
             <div class="galeria-autor">
-                <?php
-                    while($autor = $autoresDestaque->fetch(PDO::FETCH_ASSOC)){
-                        echo "
-                            <div class='autor-link'>
-                                <a href='php/user/pag-autor.php?idAutor={$autor['idAutor']}'><img src='{$autor['foto']}' alt='{$autor['nome']}' width='300px'></a>
-                                <span>{$autor['nome']}</span>
-                            </div>
-                        ";
-                    }
-                ?>
+                <?php while($autor = $autoresDestaque->fetch(PDO::FETCH_ASSOC)){ ?>
+                        <div class='autor-link'>
+                            <a href='php/user/pag-autor.php?idAutor=<?=$autor['idAutor']?>'><img src='<?=$autor['foto']?>' alt='<?=$autor['nome']?>' width='300px'></a>
+                            <span><?=$autor['nome']?></span>
+                        </div>
+                <?php } ?>
             </div><!-- galeria-autor -->
         </div><!-- autores-ddestaque  -->
     </div><!-- cointainer-1280 -->

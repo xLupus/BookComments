@@ -61,6 +61,7 @@
 .container-1100 .top {
   width: 900px;
   display: flex;
+  align-items: center;
 }
 
 .container-1100 .top .left img {
@@ -75,7 +76,10 @@
 .container-1100 .top .right .book-element {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 30px;
+}
+
+.container-1100 .top .right .book-element + .book-element {
+  margin-top: 30px;
 }
 
 .container-1100 .top .right .book-info {

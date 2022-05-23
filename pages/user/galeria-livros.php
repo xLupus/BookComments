@@ -11,7 +11,7 @@
 
     <div class="container-1280">
         <div class="filter-row">
-            <h1>Livros</h1>
+            <h2>Livros</h2>
 
             <div class="filter-dropdown">
                 <button class="dropbtn">FILTRO</button>
@@ -26,18 +26,14 @@
         </div><!-- filter-row -->
 
         <div class="galeria-livro">
-            <?php
-                while($livros = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    echo "
-                        <div class='livro-link'>
-                            <a href='pag-livro.php?idLivro={$livros['idLivro']}'>
-                                <img src='{$livros['capa']}' alt='{$livros['titulo']}' width='300px' >
-                            </a>
-                            <span>{$livros['titulo']}</span>
-                        </div>
-                    ";
-                }
-            ?>
+            <?php while($livros = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+                    <div class='livro-link'>
+                        <a href='pag-livro.php?idLivro=<?=$livros['idLivro']?>'>
+                            <img src='<?=$livros['capa']?>' alt='<?=$livros['titulo']?>' width='300px' >
+                        </a>
+                        <span><?=$livros['titulo']?></span>
+                    </div>
+                <?php } ?>
         </div><!-- galeria-livro -->
 
     </div><!-- container-1280 -->

@@ -29,7 +29,6 @@ if(isset($_GET['ordem'])){
 }
 
 
-
 $pesquisa = isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa'], ENT_COMPAT, 'UTF-8') : "";
 
 $condicoes = [strlen($pesquisa) ? "titulo LIKE '%".str_replace(' ', '%',$pesquisa)."%'" : null,

@@ -12,7 +12,7 @@
     
     <div class="container-1280">
         <div class="filter-row">
-            <h1>Autores</h1>
+            <h2>Autores</h2>
 
             <div class="filter-dropdown">
                 <button class="dropbtn">FILTRO</button>
@@ -27,16 +27,12 @@
         </div><!-- filter-row -->
 
         <div class="galeria-autor">
-            <?php
-                while($autor = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    echo "
-                        <div class='autor-link'>
-                            <a href='pag-autor.php?idAutor={$autor['idAutor']}'><img src='{$autor['foto']}' alt='{$autor['nome']}' width='300px'></a>
-                            <span>{$autor['nome']}</span>
-                        </div>
-                    ";
-                }
-            ?>
+            <?php while($autor = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+                    <div class='autor-link'>
+                        <a href='pag-autor.php?idAutor=<?=$autor['idAutor']?>'><img src='<?=$autor['foto']?>' alt='<?=$autor['nome']?>' width='300px'></a>
+                        <span><?=$autor['nome']?></span>
+                    </div>
+               <?php }?>
         </div>
 
     </div>

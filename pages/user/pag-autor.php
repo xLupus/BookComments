@@ -10,18 +10,36 @@
 <body>
     <div class="container-1280">
 
-        <div class="left">
-            <img src="<?=$fotoAutor?>" alt="" width="300px">
-        </div>
+        <div class="top">
 
-        <div class="right">
-            <p class="nome"><?=$nomeAutor?></p>
+            <div class="left">
+                <img src="<?=$fotoAutor?>" alt="" width="300px">
+            </div><!-- left -->
 
-            <div class="sobre"><?=$sobreAutor?></div>
-        </div>
+            <div class="right">
+                <p class="nome"><?=$nomeAutor?></p>
 
+                <div class="sobre"><?=$sobreAutor?></div>
+            </div><!-- right -->
+        </div><!-- top -->
+
+        <div class="bottom">
+            <h3>Livros:</h3>
+
+            <?php 
+                if(!empty($tituloLivro)){
+                    for($i = 0; $i < count($tituloLivro); $i++) {?>
+                        <div class="livros-autor">
+                            <a href="pag-livro.php?idLivro=<?=$idLivro[$i];?>"><img src="<?=$capaLivro[$i];?>" alt="" width="230px" height="320px"></a>
+                            <p><?=$tituloLivro[$i];?></p>
+                        </div><!-- livros-autor -->
+            <?php   }
+                }else 
+                    echo "<p>Nenhum Livro Cadastrado</p>";
+
+            ?>
+        </div><!-- bottom -->
     </div><!-- container-1280 -->
-
 
 </body>
 </html>
