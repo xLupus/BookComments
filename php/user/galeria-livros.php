@@ -1,8 +1,24 @@
 <?php
 
 include_once '../includes/database-connection.php';
+$pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
-$order = '';
+//SELECTIONA TOTOS OS RESULTADOS
+$resultados = $database->query("SELECT qtd = count(*) FROM BK_tbAutor");
+$resultados->execute();
+
+$total_de_resultados = $resultados->fetch(PDO::FETCH_ASSOC);
+
+//QUNATIDADE POR PAGINA
+$qtd_por_pagina = 15;
+
+//quantidade de paginas necessarias
+$num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
+
+//Inicio da visualização
+$inicio = $qtd_por_pagina * $pagina - $qtd_por_pagina;
+
+$order = 'ORDER BY idLivro ';
 
 if(isset($_GET['ordem'])){
     switch($_GET['ordem']){
@@ -23,7 +39,7 @@ if(isset($_GET['ordem'])){
         break;
     
         default:
-            $order = null;
+            $order = 'ORDER BY idLivro';
         break;
     }
 }
@@ -40,7 +56,9 @@ $where = empty($condicoes) ? '': 'WHERE '. implode(' AND ', $condicoes);
 
 $stmt = $database->query("SELECT idLivro, titulo, capa
                           FROM BK_tbLivro
-                          $where $order");
+                          $where $order
+                          OFFSET $inicio ROWS
+                          FETCH NEXT $qtd_por_pagina ROWS ONLY");
 
 $stmt->execute();
 

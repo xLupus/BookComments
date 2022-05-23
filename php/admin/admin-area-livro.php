@@ -2,6 +2,26 @@
 
 include '../includes/database-connection.php';
 
+//Pagina 'atual'
+$pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+//SELECTIONA TOTOS OS RESULTADOS
+$resultados = $database->query("SELECT qtd = count(*) FROM BK_tbLivro");
+$resultados->execute();
+
+$total_de_resultados = $resultados->fetch(PDO::FETCH_ASSOC);
+
+//QUNATIDADE POR PAGINA
+$qtd_por_pagina = 6;
+
+//quantidade de paginas necessarias
+$num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
+
+//Inicio da visualização
+$inicio = $qtd_por_pagina * $pagina - $qtd_por_pagina;
+
+
+
 $pesquisarLivro = isset($_GET['busca']) ? htmlspecialchars($_GET['busca'], ENT_COMPAT, 'UTF-8') : "";
 $pesquisarAutor = isset($_GET['buscaAutor']) ? htmlspecialchars($_GET['buscaAutor'], ENT_COMPAT, 'UTF-8') : "";
 
@@ -26,7 +46,9 @@ $stmt = $database->query("SELECT idLivro, BK_tbAutor.nome, titulo, capa, situaca
                           FROM BK_tbLivro
                           INNER JOIN BK_tbAutor 
                           ON BK_tbAutor.idAutor = BK_tbLivro.idAutor
-                          $where ORDER BY titulo");
+                          $where ORDER BY titulo
+                          OFFSET $inicio ROWS
+                          FETCH NEXT $qtd_por_pagina ROWS ONLY");
 
 $stmt->execute();
 include '../../pages/view/header.php';
