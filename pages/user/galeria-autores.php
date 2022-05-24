@@ -30,7 +30,7 @@
             <?php while($autor = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
                     <div class='autor-link'>
                         <a href='pag-autor.php?idAutor=<?=$autor['idAutor']?>'><img src='<?=$autor['foto']?>' alt='<?=$autor['nome']?>' width='300px'></a>
-                        <span><?=$autor['nome']?></span>
+                        <span class="nome-autor"><?=$autor['nome']?></span>
                     </div>
                <?php }?>
         </div>
@@ -49,7 +49,7 @@
             <?php } ?>
 
 
-            <?php for($i = 1; $i <= $num_paginas; $i++ ) {?>
+            <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
                 <a href="?pagina=<?=$i;?>"><?=$i;?></a>
             <?php }?>
 

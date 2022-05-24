@@ -27,19 +27,17 @@
                 <tr>
                     <th>ID</th> <th>Autor</th> <th>Ações</th>
                 </tr>
-            <?php
-            while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
+            <?php while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
 
-                echo "<tr>
-                        <td>{$autores['idAutor']}</td>
+                <tr>
+                    <td><?=$autores['idAutor']?></td>
 
-                        <td>{$autores['nome']}</td>
+                    <td><?=$autores['nome']?></td>
 
-                        <td><button type='submit' formaction='../admin/atualizar-autor.php' name='id' value='{$autores['idAutor']}'>Editar</button></td>
-                    </tr>
-                ";
-            }
-            ?>
+                    <td><button type='submit' formaction='../admin/atualizar-autor.php' name='id' value='<?=$autores['idAutor']?>'>Editar</button></td>
+                </tr>
+
+            <?php } ?>
                 </table>
             </form>
 
@@ -56,11 +54,9 @@
                     <span>&laquo;</span>
                 <?php } ?>
 
-
-                <?php for($i = 1; $i <= $num_paginas; $i++ ) {?>
+                <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
                     <a href="?pagina=<?=$i;?>"><?=$i;?></a>
                 <?php }?>
-
 
                 <?php if($pagina_posterior <= $num_paginas) { ?>
                     <a href="?pagina=<?=$pagina_posterior;?>">&raquo;</a>

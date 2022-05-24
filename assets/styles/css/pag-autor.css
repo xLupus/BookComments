@@ -108,5 +108,12 @@
 .container-1280 .bottom .livros-autor {
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
+}
+
+.container-1280 .bottom .livros-autor p {
+  max-width: 205px;
+  word-wrap: break-word;
+  margin-top: 5px;
 }

@@ -4,7 +4,7 @@ include_once '../includes/database-connection.php';
 
 $id = preg_replace("/\D/", '', $_GET['idLivro']);
 
-$stmt = $database->prepare('SELECT BK_tbAutor.nome, BK_tbSinopse.sinopse, titulo, Capa, lancamento, edicao, volume, numPag, situacao
+$stmt = $database->prepare('SELECT BK_tbAutor.nome, BK_tbSinopse.sinopse, titulo, Capa, lancamento, edicao, volume, numPag, situacao, BK_tbLivro.idAutor
                             FROM BK_tbLivro
                             INNER JOIN BK_tbAutor on BK_tbAutor.idAutor = BK_tbLivro.idAutor
                             INNER JOIN BK_tbSinopse on BK_tbSinopse.idSinopse = BK_tbLivro.idSinopse
@@ -23,6 +23,7 @@ $edicao = $livro['edicao'];
 $volume = $livro['volume'];
 $paginas = $livro['numPag'];
 $sinopse = $livro['sinopse'];
+$idAutor = $livro['idAutor'];
 
 include '../../pages/view/header.php';
 include '../../pages/user/pag-livro.php';

@@ -19,7 +19,7 @@
 
             <div class="right">
                 <p class="book-element">Titulo em Portugues: <span class="book-info"><?=$titulo?></span></p>
-                <p class="book-element">Autor(a): <span class="book-info"><?=$autor?></span></p>
+                <p class="book-element">Autor(a): <a href="pag-autor.php?idAutor=<?=$idAutor?>"><span class="book-info"><?=$autor?></span></a></p>
                 <p class="book-element">Ano da Edição: <span class="book-info"><?=$lancamento?></span></p>
                 <p class="book-element">Edição: <span class="book-info"><?=$edicao?></span></p>
                 <p class="book-element">Volume: <span class="book-info"><?=$volume?></span> </p>

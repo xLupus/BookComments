@@ -48,25 +48,23 @@
                 </thead>
                 <tbody>
 
-        <?php
-            while($livros = $stmt->fetch(PDO::FETCH_ASSOC)){
+            <?php while($livros = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
 
-            echo "<tr>
-                    <th>{$livros['idLivro']}</th>
+                <tr>
+                    <th><?=$livros['idLivro']?></th>
 
-                    <td><img src='{$livros['capa']}' alt='{$livros['titulo']} width='150px' height='150px'></td>
+                    <td><img src='<?=$livros['capa']?>' alt='<?=$livros['titulo']?>' width='150px' height='200px'></td>
 
-                    <td>{$livros['titulo']}</td>
+                    <td><?=$livros['titulo']?></td>
 
-                    <td>{$livros['nome']}</td>
+                    <td><?=$livros['nome']?></td>
 
-                    <td>{$livros['situacao']}</td>
+                    <td><?=$livros['situacao']?></td>
 
-                    <td><button type='submit' formaction='../admin/atualizar-livro.php' name='id' value='{$livros['idLivro']}'>Editar</button></td>
-                    </tr>
-            ";
-            }
-            ?>
+                    <td><button type='submit' formaction='../admin/atualizar-livro.php' name='id' value='<?=$livros['idLivro']?>'>Editar</button></td>
+                </tr>
+
+            <?php } ?>
                 </tbody>
             </table>
         </form>
@@ -85,7 +83,7 @@
                 <?php } ?>
 
 
-                <?php for($i = 1; $i <= $num_paginas; $i++ ) {?>
+                <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
                     <a href="?pagina=<?=$i;?>"><?=$i;?></a>
                 <?php }?>
 

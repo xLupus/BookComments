@@ -31,7 +31,7 @@
                         <a href='pag-livro.php?idLivro=<?=$livros['idLivro']?>'>
                             <img src='<?=$livros['capa']?>' alt='<?=$livros['titulo']?>' width='300px' >
                         </a>
-                        <span><?=$livros['titulo']?></span>
+                        <span class="titulo-livro"><?=$livros['titulo']?></span>
                     </div>
                 <?php } ?>
         </div><!-- galeria-livro -->
@@ -49,7 +49,7 @@
             <?php } ?>
 
 
-            <?php for($i = 1; $i <= $num_paginas; $i++ ) {?>
+            <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
                 <a href="?pagina=<?=$i;?>"><?=$i;?></a>
             <?php }?>
 

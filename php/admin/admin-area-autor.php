@@ -12,7 +12,7 @@ $resultados->execute();
 $total_de_resultados = $resultados->fetch(PDO::FETCH_ASSOC);
 
 //QUNATIDADE POR PAGINA
-$qtd_por_pagina = 6;
+$qtd_por_pagina = 10;
 
 //quantidade de paginas necessarias
 $num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
