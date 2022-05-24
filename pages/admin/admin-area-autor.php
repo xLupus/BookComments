@@ -25,12 +25,14 @@
         <form method='GET'>
             <table border='1' class="table-autor">
                 <tr>
-                    <th>ID</th> <th>Autor</th> <th>Ações</th>
+                    <th>ID</th> <th>Foto</th> <th>Autor</th> <th>Ações</th>
                 </tr>
             <?php while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
 
                 <tr>
                     <td><?=$autores['idAutor']?></td>
+
+                    <td><img src="<?=$autores['foto']?>" alt="<?=$autores['nome']?>" width='150px' height='200px'></td>
 
                     <td><?=$autores['nome']?></td>
 
@@ -64,7 +66,6 @@
                     <span>&raquo;</span>
                 <?php } ?>
             </div><!-- pagination -->
-
 
     </section>
    

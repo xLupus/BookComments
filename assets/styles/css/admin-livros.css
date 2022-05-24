@@ -147,15 +147,39 @@ a button {
 }
 
 .table-autor th:nth-child(1),
-.table-autor td:nth-child(1),
-.table-autor th:nth-child(3),
-.table-autor td:nth-child(3) {
+.table-autor td:nth-child(1) {
   width: 8%;
   text-align: center;
 }
 
 .table-autor th:nth-child(2),
 .table-autor td:nth-child(2) {
-  width: 30%;
+  width: 10%;
+  text-align: center;
+}
+
+.table-autor th:nth-child(3),
+.table-autor td:nth-child(3) {
+  width: 60%;
   padding-left: 10px;
+}
+
+.table-autor th:nth-child(4),
+.table-autor td:nth-child(4) {
+  width: 10%;
+  text-align: center;
+}
+
+.pagination {
+  width: 100%;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  color: black;
+  padding: 8px;
+  text-decoration: none;
 }

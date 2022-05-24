@@ -12,7 +12,7 @@ $resultados->execute();
 $total_de_resultados = $resultados->fetch(PDO::FETCH_ASSOC);
 
 //QUNATIDADE POR PAGINA
-$qtd_por_pagina = 10;
+$qtd_por_pagina = 8;
 
 //quantidade de paginas necessarias
 $num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
@@ -24,7 +24,8 @@ $inicio = $qtd_por_pagina * $pagina - $qtd_por_pagina;
 
 $pesquisar = isset($_GET['busca']) ? htmlspecialchars($_GET['busca'], ENT_COMPAT, 'UTF-8') : "";
 
-$condicoes = [strlen($pesquisar) ? "nome LIKE '%".str_replace(' ', '%',$pesquisar)."%'": null];
+$condicoes = [strlen($pesquisar) ? "nome LIKE '%".str_replace(' ', '%',$pesquisar)."%'": null,
+             'idAutor != 1'];
 $condicoes = array_filter($condicoes);
 
 $where = empty($condicoes) ? '': 'WHERE '. implode(' AND ', $condicoes); 
@@ -32,7 +33,7 @@ $where = empty($condicoes) ? '': 'WHERE '. implode(' AND ', $condicoes);
 $order = " ORDER BY idAutor";
 
 //Seleciona os itens a serem apresentados
-$stmt = $database->query("SELECT idAutor, nome 
+$stmt = $database->query("SELECT idAutor, nome, foto 
                           FROM BK_tbAutor
                           $where $order
                           OFFSET $inicio ROWS

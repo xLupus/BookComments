@@ -1,5 +1,7 @@
 @import 'parametros';
 
+
+
 .search{
     width: 100%;
     display: flex;
@@ -93,17 +95,41 @@ a button{
     tr{height: 50px;}
 
     th:nth-child(1),
-    td:nth-child(1),
-    th:nth-child(3),
-    td:nth-child(3){
+    td:nth-child(1){
         width:8%;
         text-align: center;
     }
 
     th:nth-child(2),
     td:nth-child(2){
-        width: 30%;        
-        padding-left: 10px;
+        width: 10%;        
+        text-align: center;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3){
+        width: 60%;
+        padding-left: 10px;        
+    }
+
+    th:nth-child(4),
+    td:nth-child(4){
+        width: 10%;
+        text-align: center;    
     }
 
 }
+
+.pagination {
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+
+    a {
+        color: black;
+        padding: 8px;
+        text-decoration: none;
+      }
+  }
