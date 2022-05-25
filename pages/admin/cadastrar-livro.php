@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Livro</title>
-    <link rel="stylesheet" href="../../assets/styles/css/admin-area1.css">
+    <link rel="stylesheet" href="../../assets/styles/css/cadastrar-livro.css">
 </head>
 <body>
     <section class="cadastrar-livro">

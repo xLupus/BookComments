@@ -5,71 +5,96 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Area</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/styles/css/admin-livros.css">
 
 </head>
 <body>
 
-    <h1>Livros</h1>
-    <form method="GET">
+    <section class="container-1280">
 
-        <label>Livro</label>
-        <input type="text" name="busca" autofocus value="<?=$pesquisarLivro ?? ''?>">
+        <form method="GET" class='search'>
 
-        <label>Autor</label>
-        <input type="text" name="buscaAutor" value="<?=$pesquisarAutor ?? ''?>">
+            <div class="input-search">
+                <label>Livro</label>
+                <input type="text" name="busca" autofocus value="<?=$pesquisarLivro ?? ''?>">
+            </div>
 
-        <label>Status</label>
-        <select name="status">
-            <option value="">Ativa/Inativa</option>
-            <option value="s" <?=isset($filtroStatus) && $filtroStatus == 's' ? 'selected' : '' ?>>Ativa</option>
-            <option value="n" <?= isset($filtroStatus) && $filtroStatus == 'n' ? 'selected' : '' ?>>Inativa</option>
-        </select>
+            <div class="input-search">
+                <label>Autor</label>
+                <input type="text" name="buscaAutor" value="<?=$pesquisarAutor ?? ''?>">
+            </div>
 
-        <button type="submit">Filtrar</button>
-    </form>
+            <div class="input-search">
+                <label>Status</label>
+                <select name="status">
+                    <option value="">Ativa/Inativa</option>
+                    <option value="s" <?=isset($filtroStatus) && $filtroStatus == 's' ? 'selected' : '' ?>>Ativa</option>
+                    <option value="n" <?= isset($filtroStatus) && $filtroStatus == 'n' ? 'selected' : '' ?>>Inativa</option>
+                </select>
+            </div>
 
-    <a href="../../php/admin/validar-livro.php"><button>+ Livros</button></a>
+            <button type="submit">Filtrar</button>
+        </form>
+
+        <a href="../../php/admin/validar-livro.php"><button>+ Livros</button></a>
 
 
-    <?php
+        <form formaction='../admin/atualizar-livro.php' method='GET' class='edit-form'>
+            <table border='1' class="table-livro">
+                <thead>
+                    <tr>
+                        <th>ID</th> <th>Capa</th> <th>Titulo</th> <th>Autor</th> <th>Status</th> <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
 
+            <?php while($livros = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
 
-        echo "<form method='GET'>
-                <table border='1' class='table'>
-                    <thead>
-                        <tr>
-                            <th>ID</th> <th>Titulo</th> <th>Autor</th> <th>Status</th> <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        ";
+                <tr>
+                    <th><?=$livros['idLivro']?></th>
 
-        while($livros = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    <td><img src='<?=$livros['capa']?>' alt='<?=$livros['titulo']?>' width='150px' height='200px'></td>
 
-        echo "<tr>
-                <th>{$livros['idLivro']}</th>
+                    <td><?=$livros['titulo']?></td>
 
-                <td>{$livros['titulo']}</td>
+                    <td><?=$livros['nome']?></td>
 
-                <td>{$livros['nome']}</td>
+                    <td><?=$livros['situacao']?></td>
 
-                <td>{$livros['situacao']}</td>
+                    <td><button type='submit' formaction='../admin/atualizar-livro.php' name='id' value='<?=$livros['idLivro']?>'><img src="../../assets/images/pencil-square.svg" alt="Editar"></button></td>
 
-                <td><button type='submit' formaction='../admin/atualizar-livro.php' name='id' value='{$livros['idLivro']}'>Editar</button></td>
                 </tr>
-        ";
-        }
 
-        echo "  </tbody>
+            <?php } ?>
+                </tbody>
             </table>
         </form>
-        ";
-    ?>
+
+            <?php 
+                //verifica a pagina anterior e posterior
+                $pagina_anterior = $pagina - 1;
+                $pagina_posterior = $pagina + 1;
+            ?>
+
+            <div class="pagination">
+                <?php if($pagina_anterior != 0) { ?>
+                    <a href="?pagina=<?=$pagina_anterior;?>">&laquo;</a>
+                <?php }else{ ?>
+                    <span>&laquo;</span>
+                <?php } ?>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
+                    <a href="?pagina=<?=$i;?>"><?=$i;?></a>
+                <?php }?>
+
+
+                <?php if($pagina_posterior <= $num_paginas) { ?>
+                    <a href="?pagina=<?=$pagina_posterior;?>">&raquo;</a>
+                <?php }else{ ?>
+                    <span>&raquo;</span>
+                <?php } ?>
+            </div><!-- pagination -->
+    </section>
 </body>
 </html>

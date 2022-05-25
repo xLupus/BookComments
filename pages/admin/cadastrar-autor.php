@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Autor</title>
-    <link rel="stylesheet" href="../../assets/styles/css/admin-area.css">
+    <link rel="stylesheet" href="../../assets/styles/css/cadastrar-autor.css">
 </head>
 <body>
     <section class='registrar-autor'> <!-- mudar registrar para cadastrar -->

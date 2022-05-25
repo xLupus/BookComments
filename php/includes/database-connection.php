@@ -11,8 +11,18 @@ $pdoConfig  = "$DB_DRIVER:Server=$DB_HOST;Database=$DB_NAME";
 
 $database = new PDO($pdoConfig,$DB_USER,$DB_PASS);
 
+//Casa Lucca
+/*
+$DB_HOST = 'DESKTOP-CQC2LSI\SQLSERVER'; 
+$DB_DRIVER = 'sqlsrv';
+$DB_NAME = 'BookComments';
+$DB_USER = 'sa';
+$DB_PASS = 'SL-221B-VAS';
 
+$pdoConfig  = "$DB_DRIVER:Server=$DB_HOST;Database=$DB_NAME";
 
+$database = new PDO($pdoConfig,NULL,NULL);
+*/
 //Senac
 /*
 $DB_HOST = '10.135.0.53\\sqledutsi';

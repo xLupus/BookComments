@@ -1,0 +1,71 @@
+@import 'parametros';
+
+.container-1280{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+    justify-content: center;
+    align-items: center;
+
+    .top{
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+
+        .left{
+            margin-right: 60px;
+    
+            img{
+                height: 380px;
+                width: 270px;
+                @include boxShadow;
+            }
+        }
+    
+        .right{
+            width: 830px;
+    
+            .nome{
+                font-size: 24px;
+                font-weight: bold;
+                padding: 10px 0;
+                border-bottom: 1px solid #8a8a8a;
+            }
+            .sobre{
+                font-size: 1rem;
+                width: 100%;
+                height: 320px;
+                border-bottom: 1px solid #8a8a8a;
+                overflow-y: scroll;
+                
+            }
+        }
+    }
+
+    .bottom{
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        
+        h3{
+            display: block;
+            width: 100%;
+        }
+
+        .livros-autor{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            p{
+                max-width: 205px;
+                word-wrap: break-word;
+                margin-top: 5px;
+            }
+        }
+    }
+
+
+}

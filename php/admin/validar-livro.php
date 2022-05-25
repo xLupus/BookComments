@@ -155,4 +155,6 @@ if(isset($_POST['btn_cadastrar']) ){
     }
 }
 
+include '../../pages/view/header.php';
 include '../../pages/admin/cadastrar-livro.php';
+include '../../pages/view/footer.php';

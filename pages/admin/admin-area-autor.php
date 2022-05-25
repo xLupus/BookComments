@@ -5,49 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Area</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/styles/css/admin-livros.css">
 </head>
 <body>
 
-    <h1>Autores</h1>
+    <section class="container-900">
 
-    <form method="GET">
-        <label>Buscar</label>
-        <input type="text" name="busca" autofocus value="<?=$pesquisar ?? ''?>">
+        <form method="GET" class="search">
+            <div class="input-search">
+                <label>Autor</label>
+                <input type="text" name="busca" autofocus value="<?=$pesquisar ?? ''?>">
+            </div>
 
-        <button type="submit">Filtrar</button>
-    </form>
+            <button type="submit">Filtrar</button>
+        </form>
 
-    <a href="../../php/admin/validar-autor.php"><button>+ Autor</button></a>
+        <a href="../../php/admin/validar-autor.php"><button>+ Autor</button></a>
 
-    <?php
-        echo "<form method='GET'>
-        <table border='1' class='table'>
-            <tr>
-                <td>ID</td> <td>Autor</td> <td>Ações</td>
-            </tr>
-        ";
-    
-        while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
-    
-            echo "<tr>
-                    <td>{$autores['idAutor']}</td>
-    
-                    <td>{$autores['nome']}</td>
-    
-                    <td><button type='submit' formaction='../admin/atualizar-autor.php' name='id' value='{$autores['idAutor']}'>Editar</button></td>
+        <form method='GET'>
+            <table border='1' class="table-autor">
+                <tr>
+                    <th>ID</th> <th>Foto</th> <th>Autor</th> <th>Ações</th>
                 </tr>
-            ";
-        }
-    
-        echo "</table>
+            <?php while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+
+                <tr>
+                    <td><?=$autores['idAutor']?></td>
+
+                    <td><img src="<?=$autores['foto']?>" alt="<?=$autores['nome']?>" width='150px' height='200px'></td>
+
+                    <td><?=$autores['nome']?></td>
+
+                    <td><button type='submit' formaction='../admin/atualizar-autor.php' name='id' value='<?=$autores['idAutor']?>'><img src="../../assets/images/pencil-square.svg" alt="Editar"></button></td>
+                </tr>
+
+            <?php } ?>
+                </table>
             </form>
-        ";
-    ?>
+
+            <?php 
+                //verifica a pagina anterior e posterior
+                $pagina_anterior = $pagina - 1;
+                $pagina_posterior = $pagina + 1;
+            ?>
+
+            <div class="pagination">
+                <?php if($pagina_anterior != 0) { ?>
+                    <a href="?pagina=<?=$pagina_anterior;?>">&laquo;</a>
+                <?php }else{ ?>
+                    <span>&laquo;</span>
+                <?php } ?>
+
+                <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
+                    <a href="?pagina=<?=$i;?>"><?=$i;?></a>
+                <?php }?>
+
+                <?php if($pagina_posterior <= $num_paginas) { ?>
+                    <a href="?pagina=<?=$pagina_posterior;?>">&raquo;</a>
+                <?php }else{ ?>
+                    <span>&raquo;</span>
+                <?php } ?>
+            </div><!-- pagination -->
+
+    </section>
+   
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 </body>
 </html>
