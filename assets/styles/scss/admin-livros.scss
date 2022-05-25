@@ -3,10 +3,9 @@
 
 
 .search{
-    width: 100%;
     display: flex;
     align-items: center;
-    margin: 30px 0;
+    margin-top: 30px;
 
     .input-search{
         label{
@@ -42,14 +41,7 @@
         margin: 0 30px;
     }
 }
-a button{
-    height: 50px;
-    width: 130px;
-    background-color: $btn-brown;
-    color: white;
-    margin-bottom: 30px;
-    cursor: pointer;
-}
+
 
 .table-livro{
     width: 100%;
@@ -156,3 +148,88 @@ a button{
         text-decoration: none;
       }
   }
+
+.row-autor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    a button{
+        height: 50px;
+        width: 130px;
+        background-color: $btn-brown;
+        color: white;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+
+    .validation-livro-ok{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 800px;
+        background-color: rgb(213, 243, 178);
+        color: rgb(5, 150, 29);
+        font-weight: bold;
+        padding: 0 10px;
+        margin-left: 12%;        
+
+        p{
+            margin: 0;
+        }
+    }
+
+  }
+
+  .row-livro{
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+
+    a button{
+        height: 50px;
+        width: 130px;
+        background-color: $btn-brown;
+        color: white;
+        cursor: pointer;
+    }
+
+    .validation-livro-ok{
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 800px;
+        background-color: rgb(213, 243, 178);
+        color: rgb(5, 150, 29);
+        font-weight: bold;
+        padding: 0 10px;
+        margin: 0 auto;
+
+        p{
+            margin: 0;
+        }
+    }
+
+  }
+
+  
+  .validation-autor-ok{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 500px;
+    margin: 30px auto;
+    background-color: rgb(213, 243, 178);
+    color: rgb(5, 150, 29);
+    font-weight: bold;
+    padding: 0 10px;     
+
+    p{
+        margin: 0;
+    }
+}

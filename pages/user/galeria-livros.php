@@ -48,9 +48,11 @@
                 <?php }else{ ?>
                     <span>&laquo;</span>
                 <?php } ?>
+
                 <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
                     <a href="?pagina=<?=$i;?>"><?=$i;?></a>
                 <?php }?>
+                
                 <?php if($pagina_posterior <= $num_paginas) { ?>
                     <a href="?pagina=<?=$pagina_posterior;?>">&raquo;</a>
                 <?php }else{ ?>

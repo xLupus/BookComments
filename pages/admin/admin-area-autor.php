@@ -10,17 +10,30 @@
 <body>
 
     <section class="container-900">
+        <div class="row-autor">
+            <form method="GET" class="search">
+                <div class="input-search">
+                    <label>Autor</label>
+                    <input type="text" name="busca" autofocus value="<?=$pesquisar ?? ''?>">
+                </div>
 
-        <form method="GET" class="search">
-            <div class="input-search">
-                <label>Autor</label>
-                <input type="text" name="busca" autofocus value="<?=$pesquisar ?? ''?>">
-            </div>
+                <button type="submit">Filtrar</button>
+            </form>
+     
 
-            <button type="submit">Filtrar</button>
-        </form>
+            <a href="../../php/admin/validar-autor.php"><button>+ Autor</button></a>
 
-        <a href="../../php/admin/validar-autor.php"><button>+ Autor</button></a>
+        </div><!-- row -->
+
+        <?php if(isset($_GET['cadastro']) && $_GET['cadastro'] = 'ok'){ ?>
+                <div class='validation-autor-ok'>
+                    <p>Autor cadastrado com sucesso</p>
+                </div>
+            <?php }elseif(isset($_GET['update']) && $_GET['update'] = 'ok'){ ?>
+                <div class='validation-autor-ok'>
+                    <p>Autor atualizado com sucesso</p>
+                </div>
+            <?php }?>
 
         <form method='GET'>
             <table border='1' class="table-autor">

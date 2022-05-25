@@ -185,9 +185,8 @@ if(isset($_POST['btn_atualizar'])){
         $stmt->bindParam(':situacao',   $situacao);
 
         if($stmt->execute()){
-            $confirmation =  "<div class='validation-ok'>
-                                <p>Livro Atualizado com sucesso</p>
-                              </div>";
+            header('location: admin-area-livro.php?update=ok');
+
         }else{
             $confirmation =  "<div class='validation-ok'>
                                 <p>Erro ao Atualizar o livro</p>

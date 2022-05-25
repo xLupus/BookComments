@@ -51,9 +51,8 @@ if(isset($_POST['btn_cadastrar'])){
         $stmt->bindParam(':diretorioFoto', $arquivoEnviado);
 
         if($stmt->execute()){
-            $confirmation =  "<div class='validation-ok'>
-                                <p>Autor inserido com sucesso</p>
-                              </div>";
+            header("location: admin-area-autor.php?cadastro=ok");
+            
         }else{
             $confirmation =  "<div class='validation-ok'>
                                 <p>Erro ao inserir o autor</p>

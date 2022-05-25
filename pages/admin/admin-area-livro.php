@@ -36,7 +36,18 @@
             <button type="submit">Filtrar</button>
         </form>
 
-        <a href="../../php/admin/validar-livro.php"><button>+ Livros</button></a>
+        <div class="row-livro">
+            <a href="../../php/admin/validar-livro.php"><button>+ Livros</button></a>
+            <?php if(isset($_GET['cadastro']) && $_GET['cadastro'] = 'ok'){ ?>
+                <div class='validation-livro-ok'>
+                    <p>Livro cadastrado com sucesso</p>
+                </div>
+            <?php }elseif(isset($_GET['update']) && $_GET['update'] = 'ok'){ ?>
+                <div class='validation-livro-ok'>
+                    <p>Livro atualizado com sucesso</p>
+                </div>
+            <?php }?>
+        </div><!-- row -->
 
 
         <form formaction='../admin/atualizar-livro.php' method='GET' class='edit-form'>
