@@ -18,11 +18,12 @@
             img{
                 height: 380px;
                 width: 270px;
+                @include boxShadow;
             }
         }
     
         .right{
-            width: 750px;
+            width: 830px;
     
             .nome{
                 font-size: 24px;
@@ -42,7 +43,7 @@
     }
 
     .bottom{
-        width: 84%;
+        width: 90%;
         display: flex;
         flex-wrap: wrap;
         gap: 30px;

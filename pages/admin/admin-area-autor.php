@@ -36,7 +36,7 @@
 
                     <td><?=$autores['nome']?></td>
 
-                    <td><button type='submit' formaction='../admin/atualizar-autor.php' name='id' value='<?=$autores['idAutor']?>'>Editar</button></td>
+                    <td><button type='submit' formaction='../admin/atualizar-autor.php' name='id' value='<?=$autores['idAutor']?>'><img src="../../assets/images/pencil-square.svg" alt="Editar"></button></td>
                 </tr>
 
             <?php } ?>

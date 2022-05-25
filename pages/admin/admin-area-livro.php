@@ -39,7 +39,7 @@
         <a href="../../php/admin/validar-livro.php"><button>+ Livros</button></a>
 
 
-        <form method='GET' class='edit-form'>
+        <form formaction='../admin/atualizar-livro.php' method='GET' class='edit-form'>
             <table border='1' class="table-livro">
                 <thead>
                     <tr>
@@ -61,7 +61,8 @@
 
                     <td><?=$livros['situacao']?></td>
 
-                    <td><button type='submit' formaction='../admin/atualizar-livro.php' name='id' value='<?=$livros['idLivro']?>'>Editar</button></td>
+                    <td><button type='submit' formaction='../admin/atualizar-livro.php' name='id' value='<?=$livros['idLivro']?>'><img src="../../assets/images/pencil-square.svg" alt="Editar"></button></td>
+
                 </tr>
 
             <?php } ?>

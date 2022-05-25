@@ -33,7 +33,7 @@
        width: 130px;
        background-color: $btn-brown;
        color: white;
-       margin-left: 60px;
+       margin-left: 30px;
        cursor: pointer;
 
     }
@@ -85,6 +85,17 @@ a button{
         padding-left: 10px;
     }
 
+    button{
+        background: none;
+        border: none;
+        outline: none;
+
+        img{
+            width:  25px;
+            height: 25px;
+            cursor: pointer;
+        }
+    }
 }
 
 .table-autor{
@@ -116,6 +127,18 @@ a button{
     td:nth-child(4){
         width: 10%;
         text-align: center;    
+    }
+
+    button{
+        background: none;
+        border: none;
+        outline: none;
+
+        img{
+            width:  25px;
+            height: 25px;
+            cursor: pointer;
+        }
     }
 
 }

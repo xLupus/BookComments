@@ -87,3 +87,8 @@ $bodyColor: #E8EAED;
     @include boxShadow;
     
 }
+
+body{
+    background-color: $bodyColor;
+}
+

@@ -30,7 +30,7 @@
                 if(!empty($tituloLivro)){
                     for($i = 0; $i < count($tituloLivro); $i++) {?>
                         <div class="livros-autor">
-                            <a href="pag-livro.php?idLivro=<?=$idLivro[$i];?>"><img src="<?=$capaLivro[$i];?>" alt="" width="230px" height="320px"></a>
+                            <a href="pag-livro.php?idLivro=<?=$idLivro[$i];?>"><img src="<?=$capaLivro[$i];?>" alt="" width="200px" height="280px"></a>
                             <p><?=$tituloLivro[$i];?></p>
                         </div><!-- livros-autor -->
             <?php   }

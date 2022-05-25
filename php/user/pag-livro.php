@@ -15,15 +15,15 @@ $stmt->execute();
 
 $livro = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$capa = $livro['Capa'];
-$titulo = $livro['titulo'];
-$autor = $livro['nome'];
-$lancamento = $livro['lancamento'];
-$edicao = $livro['edicao'];
-$volume = $livro['volume'];
-$paginas = $livro['numPag'];
-$sinopse = $livro['sinopse'];
-$idAutor = $livro['idAutor'];
+$capa        = $livro['Capa'];
+$titulo      = $livro['titulo'];
+$autor       = $livro['nome'];
+$lancamento  = $livro['lancamento'];
+$edicao      = $livro['edicao'];
+$volume      = $livro['volume'];
+$paginas     = $livro['numPag'];
+$sinopse     = $livro['sinopse'];
+$idAutor     = $livro['idAutor'];
 
 include '../../pages/view/header.php';
 include '../../pages/user/pag-livro.php';

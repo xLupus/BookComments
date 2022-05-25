@@ -51,6 +51,10 @@
   box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25);
 }
 
+body {
+  background-color: #E8EAED;
+}
+
 .container-1280 {
   display: flex;
   flex-wrap: wrap;
@@ -69,6 +73,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
 }
 
@@ -131,11 +136,30 @@
   height: 275px;
   width: 205px;
   border-radius: 30px;
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.392);
 }
 
 .container-1280 .galeria-autor .autor-link span {
   margin-top: 5px;
   word-wrap: break-word;
+}
+
+.container-1280 .galeria-autor .pagination-container {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.container-1280 .galeria-autor .pagination-container .pagination {
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.container-1280 .galeria-autor .pagination-container .pagination a {
+  color: black;
+  padding: 8px;
+  text-decoration: none;
 }
 
 .container-1280 .galeria-livro {
@@ -162,13 +186,19 @@
   word-wrap: break-word;
 }
 
-.container-1280 .pagination {
+.container-1280 .pagination-container {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.container-1280 .pagination-container .pagination {
   display: inline-block;
   margin: 0 auto;
   margin-top: 20px;
 }
 
-.container-1280 .pagination a {
+.container-1280 .pagination-container .pagination a {
   color: black;
   padding: 8px;
   text-decoration: none;

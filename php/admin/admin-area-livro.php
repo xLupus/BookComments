@@ -21,7 +21,6 @@ $num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
 $inicio = $qtd_por_pagina * $pagina - $qtd_por_pagina;
 
 
-
 $pesquisarLivro = isset($_GET['busca']) ? htmlspecialchars($_GET['busca'], ENT_COMPAT, 'UTF-8') : "";
 $pesquisarAutor = isset($_GET['buscaAutor']) ? htmlspecialchars($_GET['buscaAutor'], ENT_COMPAT, 'UTF-8') : "";
 
@@ -31,7 +30,7 @@ $filtroStatus = in_array($filtroStatus,['s','n']) ? $filtroStatus : "";
 $condicoes = [
     strlen($pesquisarLivro) ? "titulo LIKE '%".str_replace(' ', '%',$pesquisarLivro)."%'" : null,
     strlen($pesquisarAutor) ? "nome LIKE '%".str_replace(' ', '%', $pesquisarAutor)."%'" : null,
-    strlen($filtroStatus) ? "situacao = '".$filtroStatus."'" : null
+    strlen($filtroStatus)   ? "situacao = '".$filtroStatus."'" : null
 ];
 
 $condicoes = array_filter($condicoes);

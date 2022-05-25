@@ -41,25 +41,23 @@
             $pagina_posterior = $pagina + 1;
         ?>
 
-        <div class="pagination">
-            <?php if($pagina_anterior != 0) { ?>
-                <a href="?pagina=<?=$pagina_anterior;?>">&laquo;</a>
-            <?php }else{ ?>
-                <span>&laquo;</span>
-            <?php } ?>
-
-
-            <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
-                <a href="?pagina=<?=$i;?>"><?=$i;?></a>
-            <?php }?>
-
-
-            <?php if($pagina_posterior <= $num_paginas) { ?>
-                <a href="?pagina=<?=$pagina_posterior;?>">&raquo;</a>
-            <?php }else{ ?>
-                <span>&raquo;</span>
-            <?php } ?>
-        </div><!-- pagination -->
+        <div class="pagination-container">
+            <div class="pagination">
+                <?php if($pagina_anterior != 0) { ?>
+                    <a href="?pagina=<?=$pagina_anterior;?>">&laquo;</a>
+                <?php }else{ ?>
+                    <span>&laquo;</span>
+                <?php } ?>
+                <?php for($i = 1; $i < $num_paginas + 1; $i++ ) {?>
+                    <a href="?pagina=<?=$i;?>"><?=$i;?></a>
+                <?php }?>
+                <?php if($pagina_posterior <= $num_paginas) { ?>
+                    <a href="?pagina=<?=$pagina_posterior;?>">&raquo;</a>
+                <?php }else{ ?>
+                    <span>&raquo;</span>
+                <?php } ?>
+            </div><!-- pagination -->
+        </div>
     </div><!-- container-1280 -->
 </body>
 </html>

@@ -16,6 +16,7 @@
           width: 100%;
           display: flex;
           justify-content: space-between;
+          align-items: center;
           margin-bottom: 30px;
       }
       .filter-dropdown {
@@ -87,6 +88,24 @@
                 word-wrap: break-word;
             }
         }
+
+        .pagination-container{
+            display: block;
+            width: 100%;
+            text-align: center;
+    
+            .pagination {
+                display: inline-block;
+                margin: 0 auto;
+                margin-top: 20px;
+        
+                a {
+                    color: black;
+                    padding: 8px;
+                    text-decoration: none;
+                  }
+              }
+        }
     }
 
     .galeria-livro{
@@ -113,16 +132,24 @@
         } 
     }
 
-    .pagination {
-        display: inline-block;
-        margin: 0 auto;
-        margin-top: 20px;
+    .pagination-container{
+        display: block;
+        width: 100%;
+        text-align: center;
 
-        a {
-            color: black;
-            padding: 8px;
-            text-decoration: none;
+        .pagination {
+            display: inline-block;
+            margin: 0 auto;
+            margin-top: 20px;
+    
+            a {
+                color: black;
+                padding: 8px;
+                text-decoration: none;
+              }
           }
-      }
+    }
+
+
       
 }

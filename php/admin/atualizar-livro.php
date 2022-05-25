@@ -71,7 +71,6 @@ if(isset($_POST['btn_atualizar'])){
     $sinopse      = $_POST['sinopse'];
     $situacao     = $_POST['situacao'];
 
-
     //ARRAY DE ERROS
     $erros = [];
 
