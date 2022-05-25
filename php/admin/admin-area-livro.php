@@ -50,6 +50,7 @@ $stmt = $database->query("SELECT idLivro, BK_tbAutor.nome, titulo, capa, situaca
                           FETCH NEXT $qtd_por_pagina ROWS ONLY");
 
 $stmt->execute();
+
 include '../../pages/view/header.php';
 include '../../pages/admin/admin-area-livro.php';
 include '../../pages/view/footer.php';

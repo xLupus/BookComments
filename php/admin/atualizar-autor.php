@@ -86,9 +86,7 @@ if(isset($_POST['btn_atualizar'])){
         $stmt->bindParam(':id', $idAutor);
 
         if($stmt->execute()){
-            $confirmation =  "<div class='validation-ok'>
-                                <p>Autor inserido com sucesso</p>
-                              </div>";
+            header("location: admin-area-autor.php?update=ok");
         }else{
             $confirmation =  "<div class='validation-ok'>
                                 <p>Erro ao inserir o autor</p>

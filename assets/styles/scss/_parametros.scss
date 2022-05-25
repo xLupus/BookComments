@@ -50,13 +50,6 @@ $bodyColor: #E8EAED;
     }
 }
 
-.validation-ok{
-    width: 100%;
-    background-color: rgb(213, 243, 178);
-    color: rgb(5, 150, 29);
-    font-weight: bold;
-    padding: 20px 10px;
-}
 
 
 .box-error{
@@ -91,4 +84,3 @@ $bodyColor: #E8EAED;
 body{
     background-color: $bodyColor;
 }
-

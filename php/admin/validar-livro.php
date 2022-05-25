@@ -144,9 +144,8 @@ if(isset($_POST['btn_cadastrar']) ){
         $stmt->bindParam(':situacao',   $situacao);
 
         if($stmt->execute()){
-            $confirmation =  "<div class='validation-ok'>
-                                <p>Livro cadastrado com sucesso</p>
-                              </div>";
+            header("location: admin-area-livro.php?cadastro=ok");
+
         }else{
             $confirmation =  "<div class='validation-ok'>
                                 <p>Erro ao cadastrado o livro</p>

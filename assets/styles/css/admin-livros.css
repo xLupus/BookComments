@@ -16,14 +16,6 @@
   list-style: none;
 }
 
-.validation-ok {
-  width: 100%;
-  background-color: #d5f3b2;
-  color: #05961d;
-  font-weight: bold;
-  padding: 20px 10px;
-}
-
 .box-error {
   border: 3px solid #ca0808 !important;
 }
@@ -56,10 +48,9 @@ body {
 }
 
 .search {
-  width: 100%;
   display: flex;
   align-items: center;
-  margin: 30px 0;
+  margin-top: 30px;
 }
 
 .search .input-search label {
@@ -92,15 +83,6 @@ body {
 
 .search .input-search:nth-child(2) {
   margin: 0 30px;
-}
-
-a button {
-  height: 50px;
-  width: 130px;
-  background-color: #513427;
-  color: white;
-  margin-bottom: 30px;
-  cursor: pointer;
 }
 
 .table-livro {
@@ -210,4 +192,86 @@ a button {
   color: black;
   padding: 8px;
   text-decoration: none;
+}
+
+.row-autor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.row-autor a button {
+  height: 50px;
+  width: 130px;
+  background-color: #513427;
+  color: white;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.row-autor .validation-livro-ok {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 800px;
+  background-color: #d5f3b2;
+  color: #05961d;
+  font-weight: bold;
+  padding: 0 10px;
+  margin-left: 12%;
+}
+
+.row-autor .validation-livro-ok p {
+  margin: 0;
+}
+
+.row-livro {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.row-livro a button {
+  height: 50px;
+  width: 130px;
+  background-color: #513427;
+  color: white;
+  cursor: pointer;
+}
+
+.row-livro .validation-livro-ok {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 800px;
+  background-color: #d5f3b2;
+  color: #05961d;
+  font-weight: bold;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.row-livro .validation-livro-ok p {
+  margin: 0;
+}
+
+.validation-autor-ok {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 500px;
+  margin: 30px auto;
+  background-color: #d5f3b2;
+  color: #05961d;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.validation-autor-ok p {
+  margin: 0;
 }
