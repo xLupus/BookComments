@@ -1,6 +1,7 @@
 <?php
 
 include_once '../includes/database-connection.php';
+
 $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
 //SELECTIONA TOTOS OS RESULTADOS
@@ -43,7 +44,6 @@ if(isset($_GET['ordem'])){
         break;
     }
 }
-
 
 $pesquisa = isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa'], ENT_COMPAT, 'UTF-8') : "";
 
