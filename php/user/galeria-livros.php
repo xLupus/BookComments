@@ -5,7 +5,9 @@ include_once '../includes/database-connection.php';
 $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
 //SELECTIONA TOTOS OS RESULTADOS
-$resultados = $database->query("SELECT qtd = count(*) FROM BK_tbLivro");
+$resultados = $database->query("SELECT qtd = count(*)
+                                FROM BK_tbLivro
+                                WHERE situacao = 's'");
 $resultados->execute();
 
 $total_de_resultados = $resultados->fetch(PDO::FETCH_ASSOC);
