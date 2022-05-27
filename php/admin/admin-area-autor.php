@@ -12,7 +12,7 @@ $resultados->execute();
 $total_de_resultados = $resultados->fetch(PDO::FETCH_ASSOC);
 
 //QUNATIDADE POR PAGINA
-$qtd_por_pagina = 8;
+$qtd_por_pagina = 6;
 
 //quantidade de paginas necessarias
 $num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
@@ -41,7 +41,9 @@ $stmt = $database->query("SELECT idAutor, nome, foto
 
 $stmt->execute();
 
-
 include '../../pages/view/header.php';
 include '../../pages/admin/admin-area-autor.php';
 include '../../pages/view/footer.php';
+?>
+
+<script src="../../js/footer.js"></script>

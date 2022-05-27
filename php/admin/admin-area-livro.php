@@ -54,3 +54,5 @@ $stmt->execute();
 include '../../pages/view/header.php';
 include '../../pages/admin/admin-area-livro.php';
 include '../../pages/view/footer.php';
+?>
+<script src="../../js/footer.js"></script>

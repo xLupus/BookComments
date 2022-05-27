@@ -4,6 +4,8 @@ include_once '../includes/database-connection.php';
 
 //Pagina 'atual'
 $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+$pagina_anterior = $pagina - 1;
+$pagina_posterior = $pagina + 1; 
 
 //SELECTIONA TOTOS OS RESULTADOS
 $resultados = $database->query("SELECT qtd = count(*) FROM BK_tbAutor WHERE idAutor != 1");
@@ -63,7 +65,11 @@ $stmt = $database->query("SELECT idAutor, nome, foto
                           FETCH NEXT $qtd_por_pagina ROWS ONLY");
 
 $stmt->execute();
+$t = $stmt->rowCount();
 
 include '../../pages/view/header.php';
 include '../../pages/user/galeria-autores.php';
 include '../../pages/view/footer.php';
+
+?>
+<script src="../../js/footer.js"></script>

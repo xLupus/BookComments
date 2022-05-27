@@ -3,6 +3,8 @@
 include_once '../includes/database-connection.php';
 
 $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+$pagina_anterior = $pagina - 1;
+$pagina_posterior = $pagina + 1;
 
 //SELECTIONA TOTOS OS RESULTADOS
 $resultados = $database->query("SELECT qtd = count(*)
@@ -62,8 +64,13 @@ $stmt = $database->query("SELECT idLivro, titulo, capa
                           OFFSET $inicio ROWS
                           FETCH NEXT $qtd_por_pagina ROWS ONLY");
 
+
 $stmt->execute();
+$t = $stmt->rowCount();
 
 include '../../pages/view/header.php';
 include '../../pages/user/galeria-livros.php';
 include '../../pages/view/footer.php';
+
+?>
+<script src="../../js/footer.js"></script>

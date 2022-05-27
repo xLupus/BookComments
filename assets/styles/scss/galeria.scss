@@ -63,9 +63,6 @@
       }
 
 
-
-
-
     .galeria-autor{
         display: flex;
         flex-wrap: wrap;
@@ -76,7 +73,7 @@
             flex-direction: column;
             text-align: center;
     
-            img{
+            a img{
                 height: 275px;
                 width: 205px;
                 border-radius: 30px;
