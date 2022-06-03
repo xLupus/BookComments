@@ -63,10 +63,8 @@
       }
 
 
-
-
-
     .galeria-autor{
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         gap: 30px;
@@ -76,7 +74,7 @@
             flex-direction: column;
             text-align: center;
     
-            img{
+            a img{
                 height: 275px;
                 width: 205px;
                 border-radius: 30px;
@@ -109,6 +107,7 @@
     }
 
     .galeria-livro{
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         gap: 30px;

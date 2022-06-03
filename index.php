@@ -17,4 +17,3 @@ $autoresDestaque->execute();
 include './pages/view/header.php';
 include './pages/index.php';
 include './pages/view/footer.php';
-?>

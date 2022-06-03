@@ -113,6 +113,7 @@ body {
 }
 
 .container-1280 .galeria-autor {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -124,7 +125,7 @@ body {
   text-align: center;
 }
 
-.container-1280 .galeria-autor .autor-link img {
+.container-1280 .galeria-autor .autor-link a img {
   height: 275px;
   width: 205px;
   border-radius: 30px;
@@ -155,6 +156,7 @@ body {
 }
 
 .container-1280 .galeria-livro {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
