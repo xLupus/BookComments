@@ -2,25 +2,6 @@
 
 include '../includes/database-connection.php';
 
-//Pagina 'atual'
-$pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
-
-//SELECTIONA TOTOS OS RESULTADOS
-$resultados = $database->query("SELECT qtd = count(*) FROM BK_tbLivro");
-$resultados->execute();
-
-$total_de_resultados = $resultados->fetch(PDO::FETCH_ASSOC);
-
-//QUNATIDADE POR PAGINA
-$qtd_por_pagina = 6;
-
-//quantidade de paginas necessarias
-$num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
-
-//Inicio da visualização
-$inicio = $qtd_por_pagina * $pagina - $qtd_por_pagina;
-
-
 $pesquisarLivro = isset($_GET['busca']) ? htmlspecialchars($_GET['busca'], ENT_COMPAT, 'UTF-8') : "";
 $pesquisarAutor = isset($_GET['buscaAutor']) ? htmlspecialchars($_GET['buscaAutor'], ENT_COMPAT, 'UTF-8') : "";
 
@@ -35,15 +16,38 @@ $condicoes = [
 
 $condicoes = array_filter($condicoes);
 
-$where = empty($condicoes) ? '': 'WHERE '. implode(' AND ', $condicoes); 
+$where = empty($condicoes) ? '': 'WHERE '. implode(' AND ', $condicoes);
+
+//Pagina 'atual'
+$pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+//SELECTIONA TOTOS OS RESULTADOS
+$resultados = $database->query("SELECT qtd = count(*)
+                                FROM BK_tbLivro
+                                INNER JOIN BK_tbAutor
+                                ON BK_tbAutor.idAutor = BK_tbLivro.idAutor
+                                $where");
+$resultados->execute();
+
+$total_de_resultados = $resultados->fetch(PDO::FETCH_ASSOC);
+
+//QUNATIDADE POR PAGINA
+$qtd_por_pagina = 8;
+
+//quantidade de paginas necessarias
+$num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
+
+//Inicio da visualização
+$inicio = $qtd_por_pagina * $pagina - $qtd_por_pagina;
+
 
 
 $stmt = $database->query("SELECT idLivro, BK_tbAutor.nome, titulo, capa, situacao =
-                          CASE WHEN situacao = 's' THEN 'Ativo' 
+                          CASE WHEN situacao = 's' THEN 'Ativo'
                           WHEN situacao = 'n' THEN 'Inativo'
-                          END 
+                          END
                           FROM BK_tbLivro
-                          INNER JOIN BK_tbAutor 
+                          INNER JOIN BK_tbAutor
                           ON BK_tbAutor.idAutor = BK_tbLivro.idAutor
                           $where ORDER BY titulo
                           OFFSET $inicio ROWS
@@ -54,5 +58,7 @@ $stmt->execute();
 include '../../pages/view/header.php';
 include '../../pages/admin/admin-area-livro.php';
 include '../../pages/view/footer.php';
+
 ?>
+
 <script src="../../js/footer.js"></script>
