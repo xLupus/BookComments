@@ -2,21 +2,21 @@
 
 require_once '../includes/database-connection.php';
 
-$titulo = '';
-$autor = '';
+$titulo     = '';
+$autor      = '';
 $lancamento = '';
-$edicao = '';
-$volume = '';
-$paginas = '';
-$sinopse = '';
-$situacao = '';
+$edicao     = '';
+$volume     = '';
+$paginas    = '';
+$sinopse    = '';
+$situacao   = '';
 
 //Busca os autores para o datalist
 $stmt = $database->query("SELECT idAutor, nome FROM BK_tbAutor");
 $stmt->execute();
 
 while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $idAutor[] = $autores['idAutor'];
+    $idAutor[]   = $autores['idAutor'];
     $nomeAutor[] = $autores['nome'];
 
 }
@@ -102,7 +102,6 @@ if(isset($_POST['btn_cadastrar']) ){
 
 
     if( $_FILES['imagem']['error'] == 0  && $_FILES['imagem']['size'] > 0){ //inserir imagem
-
         $mimeType = mime_content_type($_FILES['imagem']['tmp_name']);
         $campos = explode('/', $mimeType);
         $tipo = $campos[0];
@@ -118,8 +117,6 @@ if(isset($_POST['btn_cadastrar']) ){
     
     }else{$erros['IMAGEM'] = 'Preencha o campo';}
 
-
-
     if(empty($erros)){
 
         $tbSinopse = $database->prepare('INSERT INTO BK_tbSinopse (sinopse) VALUES (:sinopse)');
@@ -131,7 +128,6 @@ if(isset($_POST['btn_cadastrar']) ){
 
         $stmt = $database->prepare('INSERT INTO BK_tbLivro (idSinopse, idAutor, titulo, capa, Lancamento, edicao, volume, numPag, situacao)
                                     VALUES (:idSinopse, :autor, :titulo, :capa, :lancamento, :edicao, :volume, :paginas, :situacao)');
-
 
         $stmt->bindParam(':idSinopse',  $idSinopse );
         $stmt->bindParam(':autor',      $autor );
