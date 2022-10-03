@@ -1,17 +1,7 @@
 <?php
 
-var_dump($_GET);
+if($_GET['galeria'] == 'Livros') 
+    header("location: ./user/galeria-livros.php?pesquisa={$_GET['pesquisa']} ");
 
-switch($_GET['galeria']){
-    case 'Livros':
-        header("location: ./user/galeria-livros.php?pesquisa={$_GET['pesquisa']} ");
-    break;
-
-    case 'Autores':
-        header("location: ./user/galeria-autores.php?pesquisa={$_GET['pesquisa']} ");
-    break;
-
-    default:
-    /* esngnag */
-}
-
+if($_GET['galeria'] == 'Autores') 
+    header("location: ./user/galeria-autores.php?pesquisa={$_GET['pesquisa']} ");
