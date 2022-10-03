@@ -1,6 +1,6 @@
 let alturaWindow = window.screen.height
-let alturaBody = document.body.clientHeight
-let footer = document.querySelector('footer')
+let alturaBody   = document.body.clientHeight
+let footer       = document.querySelector('footer')
 
 if(alturaBody <= alturaWindow){
     footer.style.position = 'absolute'
