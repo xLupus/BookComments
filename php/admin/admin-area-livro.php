@@ -40,8 +40,6 @@ $num_paginas = ceil($total_de_resultados['qtd'] / $qtd_por_pagina);
 //Inicio da visualização
 $inicio = $qtd_por_pagina * $pagina - $qtd_por_pagina;
 
-
-
 $stmt = $database->query("SELECT idLivro, BK_tbAutor.nome, titulo, capa, situacao =
                           CASE WHEN situacao = 's' THEN 'Ativo'
                           WHEN situacao = 'n' THEN 'Inativo'
