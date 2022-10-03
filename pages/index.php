@@ -32,7 +32,7 @@
                         <div class='autor-link'>
                             <a href='php/user/pag-autor.php?idAutor=<?=$autor['idAutor']?>'><img src='<?=$autor['foto']?>' alt='<?=$autor['nome']?>' width='300px'></a>
                             <span><?=$autor['nome']?></span>
-                        </div>
+                        </div> <!-- autor-link -->
                 <?php } ?>
             </div><!-- galeria-autor -->
         </div><!-- autores-ddestaque  -->
