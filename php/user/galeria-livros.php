@@ -69,10 +69,6 @@ $stmt = $database->query("SELECT idLivro, titulo, capa
 $stmt->execute();
 $t = $stmt->rowCount();
 
-
-
-
-
 include '../../pages/view/header.php';
 include '../../pages/user/galeria-livros.php';
 include '../../pages/view/footer.php';
