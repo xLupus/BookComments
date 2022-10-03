@@ -19,7 +19,7 @@
                                 <img src='<?=$livros['capa']?>' alt='<?=$livros['titulo']?>' width='300px'>
                             </a>
                             <span><?=$livros['titulo']?></span>
-                        </div>
+                        </div> <!-- livro-link -->
                  <?php }?>
             </div><!-- galeria-livro -->
         </div><!-- livros-destaque -->
