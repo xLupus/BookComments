@@ -1,5 +1,4 @@
 function readImage() {
-
     if (this.files && this.files[0]) {
         let file = new FileReader();
 
@@ -12,7 +11,6 @@ function readImage() {
 
         file.readAsDataURL(this.files[0]);
     }
-
 }
 
 document.getElementById("img-input").addEventListener("change", readImage, false);
