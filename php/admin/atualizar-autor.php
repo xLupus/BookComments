@@ -12,9 +12,9 @@ if(isset($_GET['id'])){
         $stmt->execute();
     
         if($autorContent = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $nome = $autorContent['nome'];
+            $nome  = $autorContent['nome'];
             $sobre = $autorContent['sobre'];
-            $foto = $autorContent['foto'];
+            $foto  = $autorContent['foto'];
         }else{
             echo "
                 <script>
@@ -42,10 +42,10 @@ if(isset($_GET['id'])){
 }
 
 if(isset($_POST['btn_atualizar'])){
-    $nome = $_POST['nome'];
-    $sobre = $_POST['sobre'];
+    $nome           = $_POST['nome'];
+    $sobre          = $_POST['sobre'];
     $arquivoEnviado = '';
-    $erros = [];
+    $erros          = [];
 
     if(!empty($nome)){
         $nome = htmlspecialchars($nome, ENT_COMPAT, 'UTF-8');
@@ -60,9 +60,9 @@ if(isset($_POST['btn_atualizar'])){
     if($_FILES['imagem']['error'] == 0  && $_FILES['imagem']['size'] > 0){ //inserir imagem
             //extension=fileinfo
             $mimeType = mime_content_type($_FILES['imagem']['tmp_name']);
-            $campos = explode('/', $mimeType);
-            $tipo = $campos[0];
-            $ext = $campos[1];
+            $campos   = explode('/', $mimeType);
+            $tipo     = $campos[0];
+            $ext      = $campos[1];
         
             if( $tipo == 'image'){
                 $arquivoEnviado = '../../assets/images/foto-autor/'.$_FILES['imagem']['name']; //.'.'.$ext
