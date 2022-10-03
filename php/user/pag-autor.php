@@ -12,10 +12,10 @@ $stmt = $database->prepare('SELECT nome, sobre, foto
 $stmt->bindParam(':id', $id);
 $stmt->execute();
 
-$autor = $stmt->fetch(PDO::FETCH_ASSOC);
-$nomeAutor      = $autor['nome'];
-$sobreAutor     = $autor['sobre'];
-$fotoAutor      = $autor['foto'];
+$autor      = $stmt->fetch(PDO::FETCH_ASSOC);
+$nomeAutor  = $autor['nome'];
+$sobreAutor = $autor['sobre'];
+$fotoAutor  = $autor['foto'];
 
 //LIVROS DO AUTOR
 $stmtLivro = $database->prepare('SELECT BK_tbLivro.Capa,BK_tbLivro.titulo,BK_tbLivro.idLivro
@@ -26,10 +26,10 @@ $stmtLivro = $database->prepare('SELECT BK_tbLivro.Capa,BK_tbLivro.titulo,BK_tbL
 $stmtLivro->bindParam(':id', $id);
 $stmtLivro->execute();
 
-while($livroAutor = $stmtLivro->fetch(PDO::FETCH_ASSOC)){
-    $capaLivro[]    = $livroAutor['Capa'];
-    $tituloLivro[]  = $livroAutor['titulo'];
-    $idLivro[]      = $livroAutor['idLivro'];
+while($livroAutor  = $stmtLivro->fetch(PDO::FETCH_ASSOC)){
+    $capaLivro[]   = $livroAutor['Capa'];
+    $tituloLivro[] = $livroAutor['titulo'];
+    $idLivro[]     = $livroAutor['idLivro'];
 }
 
 include '../../pages/view/header.php';
