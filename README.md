@@ -21,4 +21,4 @@ Com o propósito de colocar em prática diversos conceitos e tecnologias aprendi
 ## Especificação de Interfaces
 Em breve
 
-
+Login, cadastro, index, galeria livros/autores, pesquisa, area de admin
