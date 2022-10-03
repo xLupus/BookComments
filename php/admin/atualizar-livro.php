@@ -7,7 +7,7 @@ $stmt = $database->query("SELECT idAutor, nome FROM BK_tbAutor");
 $stmt->execute();
 
 while($autores = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $idAutor[] = $autores['idAutor'];
+    $idAutor[]   = $autores['idAutor'];
     $nomeAutor[] = $autores['nome'];
 
 }
@@ -27,41 +27,35 @@ if(isset($_GET['id'])){ /* pegar as informaçoes e exibir */
         $stmt->execute();
         
         if($livroContent = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $titulo = $livroContent['titulo'];
-            $capa = $livroContent['capa'];
-            $autor = $livroContent['idAutor'];
+            $titulo     = $livroContent['titulo'];
+            $capa       = $livroContent['capa'];
+            $autor      = $livroContent['idAutor'];
             $lancamento = $livroContent['lancamento'];
-            $edicao = $livroContent['edicao'];
-            $volume = $livroContent['volume'];
-            $paginas = $livroContent['numPag'];
-            $sinopse = $livroContent['sinopse'];
-            $situacao = $livroContent['situacao'];
+            $edicao     = $livroContent['edicao'];
+            $volume     = $livroContent['volume'];
+            $paginas    = $livroContent['numPag'];
+            $sinopse    = $livroContent['sinopse'];
+            $situacao   = $livroContent['situacao'];
             
 
         }else{
-            echo "
-                <script>
-                    alert('Autor invalido')
-                    window.history.go(-1)
-                </script>
-            ";
-            
+            echo "<script>
+                      alert('Autor invalido')
+                      window.history.go(-1)
+                  </script>";     
         }
     }else{
-        echo "
-            <script>
-                alert('ID invalido')
-                window.history.go(-1)
-                exit()
-            </script>
-        ";
+        echo " <script>
+                   alert('ID invalido')
+                   window.history.go(-1)
+                   exit()
+               </script>";
     }
 }
 
 
 //ATUALIZAÇÃO DOS DADOS
 if(isset($_POST['btn_atualizar'])){ 
-
     $titulo       = $_POST['titulo'];
     $autor        = $_POST['autor'];
     $lancamento   = $_POST['lancamento'];
@@ -142,9 +136,9 @@ if(isset($_POST['btn_atualizar'])){
     if( $_FILES['imagem']['error'] == 0  && $_FILES['imagem']['size'] > 0){ //inserir imagem
 
         $mimeType = mime_content_type($_FILES['imagem']['tmp_name']);
-        $campos = explode('/', $mimeType);
-        $tipo = $campos[0];
-        $ext = $campos[1];
+        $campos   = explode('/', $mimeType);
+        $tipo     = $campos[0];
+        $ext      = $campos[1];
     
         if(empty($erros)){
             if( $tipo == 'image'){
