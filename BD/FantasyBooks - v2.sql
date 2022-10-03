@@ -24,7 +24,7 @@ CREATE TABLE BK_tbSinopse(
 CREATE TABLE BK_tbLivro(
 	idLivro int primary key identity(1,1),
 	idAutor int references BK_tbAutor(idAutor),--
-    idSinopse int references BK_tbSinopse(idSinopse),
+        idSinopse int references BK_tbSinopse(idSinopse),
 	titulo varchar(100) not null,
 	Capa varchar(255),
 	Lancamento int,
