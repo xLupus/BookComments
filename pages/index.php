@@ -2,8 +2,6 @@
 
     <section class="banner">
         <div class="img-banner">
-            <h1>Um texto Aqui</h1>
-            <p>Um subtitulo talvez?</p>
         </div><!-- img-banner -->
     </section><!-- banner -->
 

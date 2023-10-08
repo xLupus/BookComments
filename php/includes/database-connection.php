@@ -7,6 +7,6 @@ $DB_NAME   = '';
 $DB_USER   = '';
 $DB_PASS   = '';
 
-$pdoConfig = "$DB_DRIVER:Server=$DB_HOST;Database=$DB_NAME";
+$pdoConfig = "$DB_DRIVER:Server=$DB_HOST,1433;Database=$DB_NAME";
 $database  = new PDO($pdoConfig,$DB_USER,$DB_PASS);
 
